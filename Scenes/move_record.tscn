@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://blxqg25y24qsx"]
+
+[node name="MoveRecord" type="CanvasLayer"]
+
+[node name="Control" type="Control" parent="."]
+custom_minimum_size = Vector2(200, 500)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 200.0
+offset_bottom = 500.0
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+custom_minimum_size = Vector2(200, 300)
+layout_mode = 2
+offset_top = 174.0
+offset_right = 200.0
+offset_bottom = 474.0
+size_flags_horizontal = 0
+size_flags_vertical = 4
+color = Color(0.709804, 0.709804, 0.709804, 0.109804)
+
+[node name="Label" type="Label" parent="Control/ColorRect"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Moves:"
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/ColorRect"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/ColorRect/MarginContainer"]
+layout_mode = 2

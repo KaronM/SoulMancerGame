@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://doodsj18msg48"]
+
+[ext_resource type="Script" uid="uid://c28wwcfjum3f1" path="res://Scripts/arena.gd" id="1_lq7nq"]
+[ext_resource type="PackedScene" uid="uid://l60hpun2psky" path="res://Scenes/action_token_bar.tscn" id="2_6o3nl"]
+[ext_resource type="PackedScene" uid="uid://dy2va8vmq0tdr" path="res://Scenes/labels.tscn" id="4_rm3sm"]
+[ext_resource type="PackedScene" uid="uid://dd115wg8osd5b" path="res://Scenes/Arena/player_options.tscn" id="6_11not"]
+
+[node name="Arena" type="Node2D"]
+script = ExtResource("1_lq7nq")
+
+[node name="ActionTokenBar" parent="." instance=ExtResource("2_6o3nl")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
+position_smoothing_enabled = true
+
+[node name="PlayerOptions" parent="." instance=ExtResource("6_11not")]
+
+[node name="Labels" parent="." instance=ExtResource("4_rm3sm")]

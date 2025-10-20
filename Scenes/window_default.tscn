@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://cfop7mdayx38n"]
+
+[ext_resource type="Texture2D" uid="uid://bkkhn61twnvyk" path="res://Assets/Gui/Token (1).png" id="1_4q3lj"]
+
+[node name="WindowDefault" type="NinePatchRect"]
+size_flags_horizontal = 3
+texture = ExtResource("1_4q3lj")
+region_rect = Rect2(0, 0, 16, 16)
+patch_margin_left = 11
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5

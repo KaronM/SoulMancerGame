@@ -1,0 +1,69 @@
+[gd_scene load_steps=10 format=3 uid="uid://dwvsp7oxqufwc"]
+
+[ext_resource type="Texture2D" uid="uid://corv77y1jel3" path="res://Assets/Characters/OverworldPlayer/idle.png" id="1_21wu8"]
+[ext_resource type="Script" uid="uid://cm4h8pn34yrmx" path="res://Scripts/area_2d.gd" id="2_lm5hq"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_21wu8"]
+radius = 8.0
+height = 18.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lm5hq"]
+atlas = ExtResource("1_21wu8")
+region = Rect2(0, 80, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6qxk7"]
+atlas = ExtResource("1_21wu8")
+region = Rect2(80, 80, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rp18l"]
+atlas = ExtResource("1_21wu8")
+region = Rect2(160, 80, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hg8wc"]
+atlas = ExtResource("1_21wu8")
+region = Rect2(240, 80, 80, 80)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3dlal"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lm5hq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6qxk7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rp18l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hg8wc")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_21wu8"]
+size = Vector2(27.5, 23.5)
+
+[node name="OverworldEnemy" type="CharacterBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_21wu8")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+modulate = Color(0.858824, 0.0156863, 0, 1)
+sprite_frames = SubResource("SpriteFrames_3dlal")
+autoplay = "default"
+frame_progress = 0.489224
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("2_lm5hq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 12)
+shape = SubResource("RectangleShape2D_21wu8")
+debug_color = Color(0.958174, 0.044077, 0.504303, 0.42)
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
+[connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]

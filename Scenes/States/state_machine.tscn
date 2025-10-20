@@ -1,0 +1,56 @@
+[gd_scene load_steps=12 format=3 uid="uid://bjfdbcdeno77s"]
+
+[ext_resource type="Script" uid="uid://cs5gisdye8e51" path="res://Scripts/States/dead.gd" id="2_1unrh"]
+[ext_resource type="Script" uid="uid://dqljg47aekbwq" path="res://Scripts/States/idle.gd" id="2_4kpet"]
+[ext_resource type="Script" uid="uid://6i28rtbq6fa7" path="res://Scripts/States/walk.gd" id="2_5ljqq"]
+[ext_resource type="Script" uid="uid://r710i5kvovd5" path="res://Scripts/States/retreat.gd" id="3_nm2m5"]
+[ext_resource type="Script" uid="uid://cttgot5h4rjvw" path="res://Scripts/attack_2.gd" id="4_0mjcg"]
+[ext_resource type="Script" uid="uid://cf0h1pirposvq" path="res://Scripts/States/attack_1.gd" id="4_j6pdt"]
+[ext_resource type="Script" uid="uid://iqef2lpln1ou" path="res://Scripts/attack_3.gd" id="5_xr5f1"]
+[ext_resource type="Script" uid="uid://tdaf23xgil6r" path="res://Scripts/States/block.gd" id="7_4kpet"]
+[ext_resource type="Script" uid="uid://gmx7b7emh4ly" path="res://Scripts/States/jump.gd" id="7_nm2m5"]
+[ext_resource type="Script" uid="uid://ctvnuj24hukcf" path="res://Scripts/States/hurt.gd" id="7_xr5f1"]
+[ext_resource type="Script" uid="uid://4e5y84xukh1x" path="res://Scripts/States/special.gd" id="9_cyxp4"]
+
+[node name="StateMachine" type="Node"]
+
+[node name="Idle" type="Node" parent="."]
+script = ExtResource("2_4kpet")
+
+[node name="Dead" type="Node" parent="."]
+script = ExtResource("2_1unrh")
+
+[node name="Walk" type="Node" parent="."]
+script = ExtResource("2_5ljqq")
+
+[node name="Retreat" type="Node" parent="."]
+script = ExtResource("3_nm2m5")
+
+[node name="Attack1" type="Node" parent="."]
+script = ExtResource("4_j6pdt")
+
+[node name="Attack2" type="Node" parent="."]
+script = ExtResource("4_0mjcg")
+
+[node name="Attack3" type="Node" parent="."]
+script = ExtResource("5_xr5f1")
+
+[node name="Jump" type="Node" parent="."]
+script = ExtResource("7_nm2m5")
+
+[node name="Block" type="Node" parent="."]
+script = ExtResource("7_4kpet")
+
+[node name="Hurt" type="Node" parent="."]
+script = ExtResource("7_xr5f1")
+
+[node name="Special" type="Node" parent="."]
+script = ExtResource("9_cyxp4")
+
+[node name="Up" type="Node" parent="."]
+
+[node name="Down" type="Node" parent="."]
+
+[node name="Left" type="Node" parent="."]
+
+[node name="Right" type="Node" parent="."]

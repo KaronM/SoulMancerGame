@@ -1,0 +1,153 @@
+[gd_scene load_steps=7 format=3 uid="uid://bv76u1iea0mvs"]
+
+[ext_resource type="Script" uid="uid://dggx3q5vnc0cp" path="res://Scripts/game_menu.gd" id="1_ekb2d"]
+[ext_resource type="Texture2D" uid="uid://dbdx6b8xj5dcn" path="res://Assets/Gui/UI_TravelBook_Slot01a.png" id="1_r7qr8"]
+[ext_resource type="FontFile" uid="uid://t2q00w257m7v" path="res://Assets/Gui/ARCADECLASSIC.TTF" id="2_in7i6"]
+[ext_resource type="Script" uid="uid://fqo3rw2i4hx1" path="res://Scripts/party_btn.gd" id="3_5a81j"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5a81j"]
+bg_color = Color(0.816208, 0.712433, 0.230204, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fw0i3"]
+
+[node name="GameMenu" type="CanvasLayer"]
+script = ExtResource("1_ekb2d")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(300, 0)
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 2
+size_flags_horizontal = 10
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_stretch_ratio = 0.0
+alignment = 1
+
+[node name="NinePatchRect" type="NinePatchRect" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 650)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+texture = ExtResource("1_r7qr8")
+region_rect = Rect2(0, 0, 30, 30)
+patch_margin_left = 4
+patch_margin_top = 2
+patch_margin_right = 4
+patch_margin_bottom = 2
+
+[node name="Menu" type="MarginContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/NinePatchRect"]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 35
+theme_override_constants/margin_bottom = -100
+
+[node name="Options" type="VBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/NinePatchRect/Menu"]
+custom_minimum_size = Vector2(200, 500)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.0
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/NinePatchRect/Menu/Options"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 25
+
+[node name="PartyBtn" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/NinePatchRect/Menu/Options/MarginContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+focus_neighbor_top = NodePath("../../MarginContainer5/Close")
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_in7i6")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxFlat_5a81j")
+toggle_mode = true
+text = "Party"
+script = ExtResource("3_5a81j")
+
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/NinePatchRect/Menu/Options"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 25
+
+[node name="InventoryBtn" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/NinePatchRect/Menu/Options/MarginContainer2"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+focus_neighbor_top = NodePath("../../MarginContainer/PartyBtn")
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_in7i6")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxFlat_5a81j")
+toggle_mode = true
+text = "Inventory
+"
+
+[node name="MarginContainer3" type="MarginContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/NinePatchRect/Menu/Options"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 25
+
+[node name="SaveBtn" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/NinePatchRect/Menu/Options/MarginContainer3"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_in7i6")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxFlat_5a81j")
+toggle_mode = true
+text = "Save
+"
+
+[node name="MarginContainer4" type="MarginContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/NinePatchRect/Menu/Options"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 25
+
+[node name="SettingsBtn" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/NinePatchRect/Menu/Options/MarginContainer4"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_in7i6")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxFlat_5a81j")
+toggle_mode = true
+text = "Settings
+"
+
+[node name="MarginContainer5" type="MarginContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/NinePatchRect/Menu/Options"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 25
+
+[node name="Close" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/NinePatchRect/Menu/Options/MarginContainer5"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+focus_neighbor_bottom = NodePath("../../MarginContainer/PartyBtn")
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_in7i6")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxFlat_5a81j")
+toggle_mode = true
+text = "Close
+"
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/NinePatchRect/Menu"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_fonts/font = ExtResource("2_in7i6")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxTexture_fw0i3")
+text = "Menu"
+horizontal_alignment = 1

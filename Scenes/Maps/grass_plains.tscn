@@ -1,0 +1,55 @@
+[gd_scene load_steps=13 format=4 uid="uid://bise05ws7llal"]
+
+[ext_resource type="Texture2D" uid="uid://c6tvqk1shby30" path="res://Assets/TileSets/GrassPlains/Tile_01.png" id="1_d7nfv"]
+[ext_resource type="Texture2D" uid="uid://brc7gqyith7lu" path="res://Assets/TileSets/GrassPlains/Tile_02.png" id="2_8hrjk"]
+[ext_resource type="Texture2D" uid="uid://bf1qart0yrsdl" path="res://Assets/TileSets/GrassPlains/Tile_03.png" id="3_5eubn"]
+[ext_resource type="Texture2D" uid="uid://ruhjlplyp7ut" path="res://Assets/TileSets/GrassPlains/Tile_04.png" id="4_dccp2"]
+[ext_resource type="PackedScene" uid="uid://cuco33cg4btgk" path="res://Scenes/player.tscn" id="5_c3dwf"]
+[ext_resource type="PackedScene" uid="uid://covnj1vxfiilv" path="res://Scenes/opponent.tscn" id="6_d7nfv"]
+[ext_resource type="PackedScene" uid="uid://doodsj18msg48" path="res://Scenes/Arena/arena.tscn" id="8_lul3h"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wlwew"]
+texture = ExtResource("1_d7nfv")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, -16, 16, 16, 16, 16, -16)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0kq3n"]
+texture = ExtResource("2_8hrjk")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, -16, 16, 16, 16, 16, -16)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_d5thu"]
+texture = ExtResource("3_5eubn")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, -16, 16, 16, 16, 16, -16)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_il4jn"]
+texture = ExtResource("4_dccp2")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_gnqev"]
+tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_wlwew")
+sources/1 = SubResource("TileSetAtlasSource_0kq3n")
+sources/2 = SubResource("TileSetAtlasSource_d5thu")
+sources/3 = SubResource("TileSetAtlasSource_il4jn")
+
+[node name="GrassPlains" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("5_c3dwf")]
+position = Vector2(-88, -28)
+
+[node name="Ground" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAD6/wAAAQAAAAAAAAD7/wAAAQAAAAAAAAD8/wAAAQAAAAAAAAD9/wAAAQAAAAAAAAD+/wAAAQAAAAAAAAD//wAAAQAAAAAAAAAAAAAAAQAAAAAAAAABAAAAAQAAAAAAAAACAAAAAQAAAAAAAAADAAAAAQAAAAAAAAAEAAAAAQAAAAAAAAAFAAAAAQAAAAAAAAAGAAAAAQAAAAAAAAAHAAAAAQAAAAAAAAAIAAAAAQAAAAAAAAAJAAAAAQAAAAAAAAD5/wAAAQAAAAAAAAAKAAAAAQAAAAAAAAD5/wEAAwAAAAAAAAD5/wIAAwAAAAAAAAD5/wMAAwAAAAAAAAD5/wQAAwAAAAAAAAD6/wEAAwAAAAAAAAD6/wIAAwAAAAAAAAD6/wMAAwAAAAAAAAD6/wQAAwAAAAAAAAD7/wEAAwAAAAAAAAD7/wIAAwAAAAAAAAD7/wMAAwAAAAAAAAD7/wQAAwAAAAAAAAD8/wEAAwAAAAAAAAD8/wIAAwAAAAAAAAD8/wMAAwAAAAAAAAD8/wQAAwAAAAAAAAD9/wEAAwAAAAAAAAD9/wIAAwAAAAAAAAD9/wMAAwAAAAAAAAD9/wQAAwAAAAAAAAD+/wEAAwAAAAAAAAD+/wIAAwAAAAAAAAD+/wMAAwAAAAAAAAD+/wQAAwAAAAAAAAD//wEAAwAAAAAAAAD//wIAAwAAAAAAAAD//wMAAwAAAAAAAAD//wQAAwAAAAAAAAAAAAEAAwAAAAAAAAAAAAIAAwAAAAAAAAAAAAMAAwAAAAAAAAAAAAQAAwAAAAAAAAABAAEAAwAAAAAAAAABAAIAAwAAAAAAAAABAAMAAwAAAAAAAAABAAQAAwAAAAAAAAACAAEAAwAAAAAAAAACAAIAAwAAAAAAAAACAAMAAwAAAAAAAAACAAQAAwAAAAAAAAADAAEAAwAAAAAAAAADAAIAAwAAAAAAAAADAAMAAwAAAAAAAAADAAQAAwAAAAAAAAAEAAEAAwAAAAAAAAAEAAIAAwAAAAAAAAAEAAMAAwAAAAAAAAAEAAQAAwAAAAAAAAAFAAEAAwAAAAAAAAAFAAIAAwAAAAAAAAAFAAMAAwAAAAAAAAAFAAQAAwAAAAAAAAAGAAEAAwAAAAAAAAAGAAIAAwAAAAAAAAAGAAMAAwAAAAAAAAAGAAQAAwAAAAAAAAAHAAEAAwAAAAAAAAAHAAIAAwAAAAAAAAAHAAMAAwAAAAAAAAAHAAQAAwAAAAAAAAAIAAEAAwAAAAAAAAAIAAIAAwAAAAAAAAAIAAMAAwAAAAAAAAAIAAQAAwAAAAAAAAAJAAEAAwAAAAAAAAAJAAIAAwAAAAAAAAAJAAMAAwAAAAAAAAAJAAQAAwAAAAAAAAAKAAEAAwAAAAAAAAAKAAIAAwAAAAAAAAAKAAMAAwAAAAAAAAAKAAQAAwAAAAAAAAD4/wAAAQAAAAAAAAD4////AQAAAAAAAAD4//7/AQAAAAAAAAD4//3/AQAAAAAAAAD4//z/AQAAAAAAAAD4//v/AQAAAAAAAAD4//r/AQAAAAAAAAD3//r/AQAAAAAAAAD3//v/AQAAAAAAAAD3//z/AQAAAAAAAAD3//3/AQAAAAAAAAD3//7/AQAAAAAAAAD3////AQAAAAAAAAD3/wAAAQAAAAAAAAALAAAAAQAAAAAAAAAMAAAAAQAAAAAAAAAMAP//AQAAAAAAAAAMAP7/AQAAAAAAAAAMAP3/AQAAAAAAAAAMAPz/AQAAAAAAAAAMAPv/AQAAAAAAAAAMAPr/AQAAAAAAAAALAPr/AQAAAAAAAAALAPv/AQAAAAAAAAALAPz/AQAAAAAAAAALAP3/AQAAAAAAAAALAP7/AQAAAAAAAAALAP//AQAAAAAAAAA=")
+tile_set = SubResource("TileSet_gnqev")
+
+[node name="Opponent" parent="." instance=ExtResource("6_d7nfv")]
+position = Vector2(72, -27)
+
+[node name="Arena" parent="." instance=ExtResource("8_lul3h")]
+position = Vector2(57, -12)
