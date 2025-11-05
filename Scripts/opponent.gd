@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var team =[GameManager.characters.Slime, GameManager.characters.Slime]
+var team =[GameManager.characters.Knight, GameManager.characters.Slime, GameManager.characters.ManEater]
 var actionTokens : int = 5
 var currentCharacter
 var currentCharacterPath : String 
@@ -10,15 +10,15 @@ var characterInstances = []
 var currentMoveset = {}
 var usedTokens = 0
 var player
-var roundStart = GameManager.roundStart
-var roundInProgress = GameManager.roundInProgress
 var selectedCharacter
+var characterOrder = []
+
+#make sure that moves made are 
+var movesGenerated = false
 #when the round actually starts
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	roundStart = GameManager.roundStart
-	roundInProgress = GameManager.roundInProgress
 	player = get_node("../Player")
 	
 	var currentCharacter = team[0]  # this is 1 (Slime)
@@ -52,14 +52,55 @@ func _ready() -> void:
 				print("Failed to load character for ID:", char)
 				
 
+#add random moves for enemies to use
+func generateMoves():
+	characterOrder.clear()
+	for char in characterInstances:
+		characterOrder.append(str(char.name))
 
+	while usedTokens <= actionTokens and characterInstances.size() > 0:
+		# Choose random character out of team
+		var randSelectIndex = randi() % characterInstances.size()
+		selectedCharacter = characterInstances[randSelectIndex]
 
+		# Pick random move out of moveset
+		var randMove = randi() % selectedCharacter.moveset.size() 
+
+		# Append move to movequeue
+		var move = selectedCharacter.moveset.keys()[randMove]
+		moveQueue.append(selectedCharacter.name + "," + move)
+
+		# Subtract cost from remaining stars (ONLY ONCE!)
+		usedTokens += selectedCharacter.moveset[move]
+
+		print(selectedCharacter.name + " uses " + move)
+		
 func refreshActionTokens():
 	usedTokens = 0
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	print(self.name)
-	roundStart = GameManager.roundStart
-	roundInProgress = GameManager.roundInProgress
-	print("roundStarted", roundStart)
+	print(characterOrder, " Order")
+	
+	if !GameManager.roundStart and !movesGenerated:
+		characterInstances = characterInstances.filter(func(c): return not c.defeated)
+		generateMoves()
+		movesGenerated = true
+		
+
+	elif GameManager.roundStart and movesGenerated:
+		#for when characters dont move
+	
+		movesGenerated = false
+		moveQueue.clear()
+		
+		#reset processing of move queues in individual characters after clearing main queue
+		for char in characterInstances:
+			char.processed_index = 0
+			
+		
+		refreshActionTokens()
+		
+		
+		
+	print("opponent queue ", moveQueue)	

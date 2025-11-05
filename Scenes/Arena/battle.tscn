@@ -2,35 +2,43 @@
 
 [ext_resource type="Script" uid="uid://cskpyu074nt8j" path="res://Scripts/battle.gd" id="1_ijlbm"]
 
-[node name="Battle" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 3.0
-offset_right = 3.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="BattleTransition" type="CanvasLayer"]
 script = ExtResource("1_ijlbm")
 
-[node name="PlayerActionTokens" type="NinePatchRect" parent="."]
-layout_mode = 0
-offset_right = 448.0
-offset_bottom = 83.0
+[node name="Screen" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(0, 175)
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+size_flags_horizontal = 2
+size_flags_vertical = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PlayerActionTokens"]
-layout_mode = 0
-offset_right = 469.0
-offset_bottom = 125.0
+[node name="Screen2" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(0, 175)
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 175.0
+offset_bottom = 350.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+size_flags_vertical = 2
 
-[node name="EnemyActionTokens" type="NinePatchRect" parent="."]
-layout_mode = 0
-offset_left = 702.0
-offset_top = 1.0
-offset_right = 1150.0
-offset_bottom = 84.0
+[node name="Screen3" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(0, 175)
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 350.0
+offset_bottom = 525.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+size_flags_vertical = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="EnemyActionTokens"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="Screen4" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(0, 150)
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 525.0
+offset_bottom = 700.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+size_flags_vertical = 2

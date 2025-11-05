@@ -1,7 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://cuco33cg4btgk"]
+[gd_scene load_steps=3 format=3 uid="uid://cuco33cg4btgk"]
 
 [ext_resource type="Script" uid="uid://jpsofis33ugl" path="res://Scripts/player.gd" id="1_v0iea"]
-[ext_resource type="PackedScene" uid="uid://dd115wg8osd5b" path="res://Scenes/Arena/player_options.tscn" id="2_cvnsp"]
 [ext_resource type="PackedScene" uid="uid://br3xeb62ou1we" path="res://Scenes/selection.tscn" id="3_6t5aa"]
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
@@ -11,8 +10,16 @@ script = ExtResource("1_v0iea")
 
 [node name="CharacterRoot" type="Node2D" parent="."]
 
-[node name="PlayerOptions" parent="." instance=ExtResource("2_cvnsp")]
-
 [node name="Selection" parent="." instance=ExtResource("3_6t5aa")]
 autoplay = "Picking"
 offset = Vector2(0, -5)
+
+[node name="Labels" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3

@@ -13,7 +13,12 @@ func apply_movement(body:CharacterBody2D, delta : float, direction: int) -> void
 		body.velocity.x = direction * SPEED
 
 func apply_knockback(body:CharacterBody2D, knockback: Vector2):
-	body.velocity = knockback
+	if body.get_parent().is_in_group("Player"):
+		body.velocity.x = -1 * knockback.x
+		body.velocity.y = knockback.y
+	else:
+		body.velocity.x = knockback.x
+		body.velocity.y = knockback.y
 	
 func stop_movement(body:CharacterBody2D) -> void:
 	body.velocity.x = 0 * SPEED

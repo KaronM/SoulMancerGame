@@ -9,6 +9,7 @@ const vec2 OFFSETS[8] = {
 	vec2(1, -1), vec2(1, 0), vec2(1, 1)
 };
 
+//runs for every pixel convered by the shader
 void fragment() {
 	vec2 size = TEXTURE_PIXEL_SIZE * line_thickness;
 	float outline = 0.0;

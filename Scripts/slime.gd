@@ -1,21 +1,38 @@
 extends Entity
+class_name Slime
 #All potential States
 var parent
 
 #moves and their action token costs
 var moveset = {
 	"LightAttack": 1,
-	 "HeavyAttack": 2,
-	"Block":1,}
+	"HeavyAttack": 2,
+	"UniqueAttack": 4,
+	
+}
+#"Block": 2,
+#Range Detection for raycasts
+var movesetRanges ={
+	"LightAttack": 10,
+	"HeavyAttack": 10,
+	"UniqueAttack": 75,
+	
+}
+#"Block": 15,
+#for raycasts for each move
+
+
 
 func _ready() -> void:
-	maxHealth= 75
+	#Health
+	maxHealth= 100
 	if $HealthBar:
 		$HealthBar.init_health(maxHealth)
 		$HealthBar._set_health(maxHealth)
 	parent = get_parent()
 	var sprite = $Sprite2D
 	var shader_material = sprite.material as ShaderMaterial
+	
 
 	#set shader color
 	var mat = $Sprite2D.material as ShaderMaterial
@@ -38,11 +55,8 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	
-	#$HealthBar._set_health($HealthBar.value)
-	#if parent.is_in_group("Opponent"):
-		#moveQueues.append("LightAttack")
+
 	super.process(parent, delta)
 	
 func _physics_process(delta: float) -> void:
-	super.main(delta, parent)
+	super.main(delta, parent, movesetRanges)

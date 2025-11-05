@@ -19,8 +19,12 @@ func _on_physics_process(_delta : float) -> void:
 func _on_animation_finished_heavy(anim_name: String) -> void:
 	print("Animation finished:", anim_name)
 	if anim_name == "HeavyAttack":
-		entity.change_state(entity.states["walk"])
+		
 		entity.remove_move(anim_name) 
+		if entity.moveQueues.size() > 0:
+			entity.change_state(entity.states["walk"])
+		else:
+			entity.change_state(entity.states["retreat"])
 
 
 #

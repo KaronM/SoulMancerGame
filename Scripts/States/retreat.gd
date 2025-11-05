@@ -6,7 +6,9 @@ extends State
 #parent node (Player or opponent
 var parent :Node2D
 var direction: int
-#walking back home
+
+#trigger for stopping at spawn only once at a time
+var backHome = false
 
 
 func _on_physics_process(delta: float) -> void:
@@ -35,13 +37,15 @@ func _on_physics_process(delta: float) -> void:
 			_stop_at_spawn()
 		elif parent.is_in_group("Opponent") '''
 		
-	if (entity.global_position.x >= entity.spawnX - 1 and entity.global_position.x <= entity.spawnX + 1):
-			_stop_at_spawn()
+		if (entity.global_position.x >= entity.spawnX - 1 and entity.global_position.x <= entity.spawnX + 1) and !backHome:
+				_stop_at_spawn()
+				backHome = true
+				
 	#print("Walking")
 	print("retreating")
 
 func _on_enter(owner: CharacterBody2D) -> void:
-	
+	backHome = false
 	entity = owner
 	parent = entity.get_parent()
 	animationPlayer = entity.get_node("AnimationPlayer")

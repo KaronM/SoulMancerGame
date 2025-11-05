@@ -6,7 +6,8 @@
 size = Vector2(33, 45)
 
 [node name="HurtBox" type="Area2D" groups=["Hurtbox"]]
-collision_layer = 2
+collision_layer = 8
+collision_mask = 16
 script = ExtResource("1_bfbh1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

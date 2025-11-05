@@ -9,7 +9,9 @@
 custom_minimum_size = Vector2(0, 100)
 anchors_preset = 10
 anchor_right = 1.0
-offset_bottom = 23.0
+offset_left = 1.0
+offset_top = -100.0
+offset_right = 1.0
 grow_horizontal = 2
 size_flags_horizontal = 3
 size_flags_vertical = 0

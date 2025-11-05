@@ -55,4 +55,5 @@ func interact(body):
 		print("Transitioning to new scene...")
 		get_tree().change_scene_to_file("res://Scenes/Maps/grass_plains.tscn")  
 		scenetransitioned=true
-		GameManager.arenaTransitioned = false
+		GameManager.startMatch()
+ 		#GameManager.arenaTransitioned = false

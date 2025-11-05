@@ -61,6 +61,7 @@ func stagger(new_stun_duration: float) -> void:
 func _on_stun_timeout() -> void:
 	stunTimerFinished = true
 	entity.is_hurt = false
+	
 	entity.change_state(entity.lastState)
 
 func _on_exit() -> void:

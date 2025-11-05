@@ -1,0 +1,71 @@
+[gd_scene load_steps=3 format=3 uid="uid://d2qv1ili1aot1"]
+
+[ext_resource type="Texture2D" uid="uid://dbdx6b8xj5dcn" path="res://Assets/Gui/UI_TravelBook_Slot01a.png" id="1_m6frh"]
+[ext_resource type="FontFile" uid="uid://t2q00w257m7v" path="res://Assets/Gui/ARCADECLASSIC.TTF" id="2_0g26e"]
+
+[node name="RoundEndLabel" type="CanvasLayer"]
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+modulate = Color(0.964706, 1, 1, 1)
+custom_minimum_size = Vector2(500, 300)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -226.0
+offset_top = -624.0
+offset_right = 274.0
+offset_bottom = -324.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("1_m6frh")
+
+[node name="Label" type="Label" parent="NinePatchRect"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -41.0
+offset_right = 41.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_0g26e")
+theme_override_font_sizes/font_size = 50
+text = "Match End"
+
+[node name="Button" type="Button" parent="NinePatchRect"]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.0
+offset_top = -68.0
+offset_right = 50.0
+offset_bottom = -18.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("2_0g26e")
+theme_override_font_sizes/font_size = 20
+text = "Exit Match"
+
+[node name="Label2" type="Label" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 89.0
+offset_top = 103.0
+offset_right = 209.0
+offset_bottom = 126.0
+text = "Money Earned: "
+
+[node name="Label3" type="Label" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 91.0
+offset_top = 137.0
+offset_right = 211.0
+offset_bottom = 160.0
+text = "Experience Earned: "

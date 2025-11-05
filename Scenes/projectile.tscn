@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=3 uid="uid://bsi07igkuc5kh"]
+
+[ext_resource type="Script" uid="uid://befqtlvw06ul4" path="res://Scripts/projectile.gd" id="1_f8cdk"]
+[ext_resource type="Texture2D" uid="uid://bw58oy3kkb65f" path="res://Assets/Characters/ManEater/Moveset/ManEaterProjectile.png" id="1_tl4hk"]
+[ext_resource type="PackedScene" uid="uid://d08w5qphkuy6d" path="res://Scenes/Boxes/hit_box.tscn" id="3_tl4hk"]
+
+[node name="Projectile" type="Sprite2D"]
+z_index = 2
+texture = ExtResource("1_tl4hk")
+script = ExtResource("1_f8cdk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="hit_box" parent="." instance=ExtResource("3_tl4hk")]
+scale = Vector2(0.352544, 0.262659)
+knockback = Vector2(5, 0)
+hitStun = 0.2
+blockStun = 0.2
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+z_index = 1
+position = Vector2(1, 0)
+amount = 100
+lifetime = 0.93
+speed_scale = 2.78
+emission_shape = 1
+emission_sphere_radius = 1.0
+spread = 89.0
+gravity = Vector2(-200, 300)
+initial_velocity_max = 85.12
+linear_accel_min = -71.72
+linear_accel_max = -71.51
+damping_min = 30.556
+damping_max = 30.556
+scale_amount_min = 0.0
+scale_amount_max = 3.1
+color = Color(0.21053, 0.118422, 0.291414, 1)
+hue_variation_max = 1.0

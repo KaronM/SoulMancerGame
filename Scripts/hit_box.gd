@@ -11,6 +11,9 @@ func _process(delta: float) -> void:
 	pass
 
 
+func addDamage(strength: int):
+	damage = strength
+
 func _on_area_entered(area: Area2D) -> void:
 	# Only react if the area is actually a HitBox
 	pass

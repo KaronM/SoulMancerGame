@@ -13,13 +13,17 @@ func _on_process(_delta : float) -> void:
 func _on_physics_process(_delta : float) -> void:
 	if animationPlayer.current_animation != "LightAttack":
 		animationPlayer.play("LightAttack")
-		print("hiya")
 	
 	
 func _on_animation_finished_light(anim_name: String) -> void:
 	if anim_name == "LightAttack":
-		entity.change_state(entity.states["walk"])
+		
+		
 		entity.remove_move(anim_name) 
+		if entity.moveQueues.size() > 0:
+			entity.change_state(entity.states["walk"])
+		else:
+				entity.change_state(entity.states["retreat"])
 
 
 #

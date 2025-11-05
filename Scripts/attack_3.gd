@@ -19,8 +19,12 @@ func _on_physics_process(_delta : float) -> void:
 func _on_animation_finished_unique(anim_name: String) -> void:
 	print("Animation finished:", anim_name)
 	if anim_name == "UniqueAttack":
-		entity.change_state(entity.states["walk"])
+	
 		entity.remove_move(anim_name) 
+		if entity.moveQueues.size() > 0:
+			entity.change_state(entity.states["walk"])
+		else:
+			entity.change_state(entity.states["retreat"])
 
 
 #
@@ -34,7 +38,6 @@ func _on_next_transitions() -> void:
 #initial state
 func _on_enter(owner: CharacterBody2D) -> void:
 	entity = owner
-	entity.attacking = true
 	animationPlayer = entity.get_node("AnimationPlayer")
 	animationPlayer.play("UniqueAttack")
 	animationPlayer.connect("animation_finished", Callable(self, "_on_animation_finished_unique"))
