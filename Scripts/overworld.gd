@@ -20,7 +20,6 @@ func toggleMenu():
 		menuFirstOption.grab_focus()
 	menu.visible = !menu.visible
 
-
 func togglePartyMenu():
 	if !partyMenu:
 		var tween = get_tree().create_tween()

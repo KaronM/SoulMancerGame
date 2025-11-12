@@ -5,6 +5,11 @@ var entity: CharacterBody2D
 var Player: CharacterBody2D
 var Opponent: CharacterBody2D
 
+#to pass to player for ingame instantiation
+var characterTeam = []
+#array of all characters created for character data (for character Ids)
+var characterCounter = 0
+
 # for characters going to spawn
 var charsAtSpawn = 0
 
@@ -17,6 +22,7 @@ var matchStart = false
 var arenaTransitioning = false
 var activeCharacters = 0
 
+#types of characters
 enum characters {
 	None,
 	Slime,
@@ -75,6 +81,8 @@ func startMatch():
 	
 #show end match screen
 func endMatch():
+
+	
 	var arena = get_node("/root/GrassPlains/Arena")
 	arena.get_node("PlayerOptions/Control").hide()
 	var roundEndLabel = arena.get_node("RoundEndLabel/NinePatchRect")
@@ -82,20 +90,20 @@ func endMatch():
 	tween.tween_property(roundEndLabel,"position",Vector2(350,150),0.3)
 	var exitButton = roundEndLabel.get_node("Button")
 	
-	exitButton.call_deferred("grab_focus")
-	
 	exitButton.connect("pressed", Callable(self, "exitMatch"))
+	exitButton.call_deferred("grab_focus")
+
+	
 	matchEnd = true
 	matchStart = false
+	roundStart = false
 	
 	
 	
 #reset match and round vars for next match
 func exitMatch():
-	#arenaTransitioned = true
 	matchStart = false
 	activeCharacters = 0
-	#roundInProgress = false
 	matchEnd = false
 	roundStart = false
 	
@@ -139,8 +147,6 @@ func _process(delta: float) -> void:
 			
 		
 			#if match ended midbattle, make sure match is
-			
-				#print(character)
 			if !character.defeated and character.home == true :
 				charsAtSpawn += 1
 				#print("back at spawn = ", charsAtSpawn, " active = ", activeCharacters)

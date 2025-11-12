@@ -33,12 +33,13 @@ func _on_enter(owner: CharacterBody2D) -> void:
 	entity.set_collision_mask_value(3, false)  # stop detecting player
 	entity.set_collision_layer_value(2, false) 
 	entity.set_collision_layer_value(3, false) 
-	#entity.set_collision_layer_value(1, true)
+
 	entity.set_collision_mask_value(1, false)
 	entity.set_collision_layer_value(1, false)
 	
 	
-
+	
+	
 	
 	var hurtBox = entity.get_node("HurtBox")
 	if hurtBox:

@@ -11,7 +11,7 @@ var moveset = {
 
 var movesetRanges ={
 	"UniqueAttack": 150,
-	"LightAttack": 100,
+	"LightAttack": 45,
 }
 
 

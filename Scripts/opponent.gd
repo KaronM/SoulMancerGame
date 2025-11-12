@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var team =[GameManager.characters.Knight, GameManager.characters.Slime, GameManager.characters.ManEater]
+var team =[GameManager.characters.Slime,GameManager.characters.ManEater,GameManager.characters.Slime]
 var actionTokens : int = 5
 var currentCharacter
 var currentCharacterPath : String 

@@ -227,7 +227,7 @@ func main(delta: float, parent: CharacterBody2D, moveRanges: Dictionary) -> void
 		#print("Spawn is " + str(spawnX))
 		#change states when round starts
 
-
+		#set Ray casts for move
 		if moveQueues.size() > 0:
 			if parent.is_in_group("Player"):
 				rayCast.target_position = Vector2(moveRanges[moveQueues[0]], 0)
@@ -258,11 +258,7 @@ func main(delta: float, parent: CharacterBody2D, moveRanges: Dictionary) -> void
 				else:
 					hurtbox.isBlocking = false
 				
-				if parent.is_in_group("Player"):
-					rayCast.target_position = Vector2(20, 0)
-				else:
-					rayCast.target_position = Vector2(-20, 0)
-				
+
 				#depending on order add delay between walking:
 				
 			
@@ -336,6 +332,7 @@ func _on_entity_detection_raycast_hit():
 func dead():
 	change_state(states["dead"])
 
+#when hurt by hitbox
 func hurt(area: Area2D):
 	if !is_blocking and !defeated:
 		var stun_duration = area.hitStun
@@ -356,6 +353,7 @@ func hurt(area: Area2D):
 			change_state(states["hurt"], stun_duration)
 			is_hurt == true
 
+#when Blocking
 func block(area: Area2D):
 	hurtbox.isBlocking = true
 	

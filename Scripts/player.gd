@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 #for player team 
-var team = [GameManager.characters.Slime, GameManager.characters.Knight]
+var team = []
 
 #number of action tokens
 var actionTokens:= 7
@@ -56,7 +56,8 @@ func _ready() -> void:
 
 	selectIndex = 0
 	usedTokens = 0
-	
+	#build team
+	team.append_array(GameManager.characterTeam)
 	#scene accesses
 	
 	#action bar scenes and tokens
@@ -80,10 +81,14 @@ func _ready() -> void:
 			childtoken.scale = Vector2(2.531,2.31)
 			childtoken.offset.x = 25
 			
-	#instantiate characters
+	#instantiate characters from team 
 	for i in range(team.size()):
+	
 		var char = team[i]
-		var currentCharacterPath = GameManager.characterPaths.get(char)
+		print(char)
+		
+		var currentCharacterPath = GameManager.characterPaths.get(char.characterType)
+		print(char.characterType)
 		var scene : PackedScene = load(currentCharacterPath)
 
 		if scene:
@@ -107,6 +112,11 @@ func _ready() -> void:
 				
 	changeSelection(0)
 	addMoveOptions()
+
+
+func changeTeam():
+	var overWorldPlayer
+
 
 #add move buttons to options window
 func addMoveOptions():
@@ -207,11 +217,21 @@ func on_move_pressed(move_name: String) -> void:
 			
 			var row = HBoxContainer.new()
 			row.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
+			
+			
+			#find selected character as it relates to character order
+			var currentCharIndex
+			if characterOrder.has(selectedCharacter.name):
+				currentCharIndex = characterOrder.find(selectedCharacter.name) + 1
+			else:
+				currentCharIndex = characterOrder.size() + 1
+			
 			#add labels to move record
+			
 			var label = Label.new()
-			label.text = "   " + str(move)
+			label.text = str(currentCharIndex) + "   " + str(move)
 			label.add_theme_font_override("font", font)
-			label.add_theme_font_size_override("font_size", 20)
+			label.add_theme_font_size_override("font_size", 18)
 			label.modulate = Color(1, 1, 1, 1)
 			label.size_flags_horizontal = 0
 			row.add_child(label)
@@ -219,16 +239,24 @@ func on_move_pressed(move_name: String) -> void:
 			# get move icon 
 			if icons.has_node(move):
 				var icon_sprite = icons.get_node(move)
-				if icon_sprite is AnimatedSprite2D:
-					var tex: Texture2D = icon_sprite.sprite_frames.get_frame_texture(
-						icon_sprite.animation,
-						icon_sprite.frame
-					)
+				if icon_sprite is Sprite2D:
+					var tex: Texture2D = icon_sprite.texture
 					if tex:
 						var icon_texrect = TextureRect.new()
-						icon_texrect.texture = tex
+						var region_enabled = icon_sprite.region_enabled
+						if region_enabled:
+							var region = icon_sprite.region_rect
+							# Create AtlasTexture from the region
+							var atlas_tex := AtlasTexture.new()
+							atlas_tex.atlas = tex
+							atlas_tex.region = region
+							icon_texrect.texture = atlas_tex
+						else:
+							icon_texrect.texture = tex
+
 						icon_texrect.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
-						icon_texrect.custom_minimum_size = Vector2(20, 20)
+						icon_texrect.custom_minimum_size = Vector2(48,48)
+						icon_texrect.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 						row.add_child(icon_texrect)
 					else:
 						print("⚠️ No texture found for move:", move)
@@ -237,6 +265,7 @@ func on_move_pressed(move_name: String) -> void:
 			else:
 				print("⚠️ No icon found for move:", move)
 			
+			#add order labels to move record
 			moveRecord.add_child(row)
 			var scroll = moveRecord.get_parent()  # The ScrollContainer
 			await get_tree().process_frame      # Wait a frame so layout updates

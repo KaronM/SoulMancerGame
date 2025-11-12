@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://d1ljo5d8p7vpe"]
+[gd_scene load_steps=29 format=3 uid="uid://d1ljo5d8p7vpe"]
 
 [ext_resource type="Script" uid="uid://cwsqh164fw1ag" path="res://Scripts/knight.gd" id="1_6xxqd"]
 [ext_resource type="Texture2D" uid="uid://t5s10l0sroj8" path="res://Assets/Characters/Knight/Moveset/knightIdle.png" id="1_tvdwm"]
@@ -8,13 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://bjfdbcdeno77s" path="res://Scenes/States/state_machine.tscn" id="3_qg0cu"]
 [ext_resource type="Texture2D" uid="uid://dg14kapjywraw" path="res://Assets/Characters/Knight/Moveset/knightDefeat.png" id="4_7tll2"]
 [ext_resource type="PackedScene" uid="uid://c3n62rihl400o" path="res://Scenes/entity_detection.tscn" id="4_dmjno"]
-[ext_resource type="Texture2D" uid="uid://dwdnvmibq0bdw" path="res://Assets/Characters/Slime/Moveset/Block.png" id="5_npltq"]
 [ext_resource type="Texture2D" uid="uid://dnhk33trnygay" path="res://Assets/Characters/Knight/Moveset/knightLightAttack.png" id="5_rutod"]
-[ext_resource type="Texture2D" uid="uid://l75yfr3oe1k2" path="res://Assets/Characters/Slime/Moveset/HeavyAttack.png" id="6_5vgli"]
 [ext_resource type="Texture2D" uid="uid://bolwxgs5gmbjg" path="res://Assets/Characters/Knight/Moveset/knightBlock.png" id="6_cnlwh"]
 [ext_resource type="Texture2D" uid="uid://c40ti2h6ttlnu" path="res://Assets/Characters/Knight/Moveset/knightHeavyAttack.png" id="7_a7f2n"]
-[ext_resource type="Texture2D" uid="uid://imsm3xg4a06f" path="res://Assets/Characters/Slime/Moveset/LightAttack.png" id="7_ylt54"]
-[ext_resource type="Texture2D" uid="uid://4clnso6m15rh" path="res://Assets/Characters/Slime/Moveset/AirHeavyAttack.png" id="8_6xxqd"]
 [ext_resource type="PackedScene" uid="uid://dp0dccv7a7n0p" path="res://Scenes/health_bar.tscn" id="9_7tll2"]
 [ext_resource type="Texture2D" uid="uid://c4gj35j62xysd" path="res://Assets/Characters/Knight/Moveset/knightHurt.png" id="9_rutod"]
 [ext_resource type="PackedScene" uid="uid://cmncdcd5njc5n" path="res://Scenes/Boxes/hurt_box.tscn" id="10_rutod"]
@@ -1705,57 +1701,6 @@ shader = ExtResource("2_q8hlr")
 shader_parameter/line_color = Color(1, 0.576471, 0.0431373, 1)
 shader_parameter/line_thickness = 1.0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_gxqrl"]
-atlas = ExtResource("5_npltq")
-region = Rect2(0, 96, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_q2u4q"]
-atlas = ExtResource("6_5vgli")
-region = Rect2(48, 96, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4m2oo"]
-atlas = ExtResource("7_ylt54")
-region = Rect2(32, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_2uck1"]
-atlas = ExtResource("8_6xxqd")
-region = Rect2(64, 128, 64, 64)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_qpklr"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_gxqrl")
-}],
-"loop": true,
-"name": &"Block",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_q2u4q")
-}],
-"loop": true,
-"name": &"HeavyAttack",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4m2oo")
-}],
-"loop": true,
-"name": &"LightAttack",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_2uck1")
-}],
-"loop": true,
-"name": &"UniqueAttack",
-"speed": 5.0
-}]
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7tll2"]
 bg_color = Color(0, 0, 0, 1)
 
@@ -1794,29 +1739,17 @@ collision_mask = 0
 [node name="AttackPreviewContainer" type="Node2D" parent="."]
 position = Vector2(-4, -16)
 
-[node name="LightAttack" type="AnimatedSprite2D" parent="AttackPreviewContainer"]
+[node name="LightAttack" type="Sprite2D" parent="AttackPreviewContainer"]
 visible = false
-position = Vector2(0, -16)
-sprite_frames = SubResource("SpriteFrames_qpklr")
-animation = &"LightAttack"
+texture = ExtResource("5_rutod")
+region_enabled = true
+region_rect = Rect2(16, 288, 144, 144)
 
-[node name="HeavyAttack" type="AnimatedSprite2D" parent="AttackPreviewContainer"]
+[node name="HeavyAttack" type="Sprite2D" parent="AttackPreviewContainer"]
 visible = false
-position = Vector2(-3, -23)
-sprite_frames = SubResource("SpriteFrames_qpklr")
-animation = &"HeavyAttack"
-
-[node name="JumpAttack" type="AnimatedSprite2D" parent="AttackPreviewContainer"]
-visible = false
-position = Vector2(-1, -5)
-sprite_frames = SubResource("SpriteFrames_qpklr")
-animation = &"UniqueAttack"
-
-[node name="Block" type="AnimatedSprite2D" parent="AttackPreviewContainer"]
-visible = false
-position = Vector2(2, -24)
-sprite_frames = SubResource("SpriteFrames_qpklr")
-animation = &"Block"
+texture = ExtResource("7_a7f2n")
+region_enabled = true
+region_rect = Rect2(16, 288, 144, 144)
 
 [node name="HealthBar" parent="." instance=ExtResource("9_7tll2")]
 modulate = Color(1, 1, 1, 0.976471)

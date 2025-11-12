@@ -5,13 +5,20 @@ var speed : float = 100.0
 var enemy
 var enemyInteractable
 var scenetransitioned = false
-
+var characterReserve = []
+var firstStarted = false
 func _ready() -> void:
 	enemy = get_node("../OverworldEnemy")
 	enemyInteractable = get_node("../OverworldEnemy/Area2D")
 	
 	enemyInteractable.body_entered.connect(interact)
+	
+	if !firstStarted:
+		createStartingCharacters()
+		firstStarted = true
 
+func addCharacterToTeam(characterData: CharacterData, team = []):
+	var characterId = characterData.character_id
 	
 func _physics_process(delta: float) -> void:
 	if get_parent().menu.visible == false:
@@ -45,11 +52,35 @@ func _physics_process(delta: float) -> void:
 			if direction.x != 0:
 				$AnimatedSprite2D.play("Walk_Right")
 				$AnimatedSprite2D.flip_h = direction.x < 0
-	
+
+
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 
+#create random starting characters to team 
+func createStartingCharacters():
+	#knight
+	var knight = CharacterData.new()
+	#insert information
+	knight.createCharacterData({"characterType": GameManager.characters.Knight, 
+	"characterName": str(knight.characterType) + str(knight.characterId), 
+	"level" : 5})
+	#slime
+	var slime = CharacterData.new()
+	#insert information
+	slime.createCharacterData({"characterType": GameManager.characters.Slime, 
+	"characterName": str(slime.characterType) + str(slime.characterId), 
+	"level" : 5})
 	
+	var manEater = CharacterData.new()
+	#insert information
+	manEater.createCharacterData({"characterType": GameManager.characters.ManEater, 
+	"characterName": str(manEater.characterType) + str(manEater.characterId), 
+	"level" : 5})
+	
+	GameManager.characterTeam.append_array([knight,slime,manEater])
+
+
 func interact(body):
 	if body.name == "OverworldPlayer" and scenetransitioned == false:  # Optional check, if needed
 		print("Transitioning to new scene...")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://cmb3du6pasa6l"]
+[gd_scene load_steps=40 format=3 uid="uid://cmb3du6pasa6l"]
 
 [ext_resource type="Script" uid="uid://c4ehh3neop12t" path="res://Scripts/slime.gd" id="1_gxqrl"]
 [ext_resource type="Texture2D" uid="uid://bhn0ui04g3b62" path="res://Assets/Characters/Slime/Moveset/AirLightAttack.png" id="3_4m2oo"]
@@ -8,7 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://bqu6bbq27oe5" path="res://Assets/Characters/Slime/Moveset/Idle.png" id="7_mo5kl"]
 [ext_resource type="Texture2D" uid="uid://w2dl7avvfsqw" path="res://Assets/Characters/Slime/Moveset/Jump.png" id="8_jvllc"]
 [ext_resource type="Texture2D" uid="uid://imsm3xg4a06f" path="res://Assets/Characters/Slime/Moveset/LightAttack.png" id="9_qggyi"]
-[ext_resource type="Texture2D" uid="uid://4clnso6m15rh" path="res://Assets/Characters/Slime/Moveset/AirHeavyAttack.png" id="10_hln7k"]
 [ext_resource type="PackedScene" uid="uid://bsi07igkuc5kh" path="res://Scenes/projectile.tscn" id="10_jvllc"]
 [ext_resource type="Texture2D" uid="uid://cgtjos7cweq0n" path="res://Assets/Characters/Slime/Moveset/Special.png" id="10_mo5kl"]
 [ext_resource type="Texture2D" uid="uid://d2m2twob874w5" path="res://Assets/Characters/Slime/Moveset/BackwardsWalk.png" id="11_o73go"]
@@ -2123,57 +2122,6 @@ shader = ExtResource("14_tqevj")
 shader_parameter/line_color = Color(1, 0.576471, 0.0431373, 1)
 shader_parameter/line_thickness = 1.0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_gxqrl"]
-atlas = ExtResource("4_2uck1")
-region = Rect2(0, 96, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_q2u4q"]
-atlas = ExtResource("6_tqevj")
-region = Rect2(48, 96, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4m2oo"]
-atlas = ExtResource("9_qggyi")
-region = Rect2(32, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_2uck1"]
-atlas = ExtResource("10_hln7k")
-region = Rect2(64, 128, 64, 64)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_5vitb"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_gxqrl")
-}],
-"loop": true,
-"name": &"Block",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_q2u4q")
-}],
-"loop": true,
-"name": &"HeavyAttack",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4m2oo")
-}],
-"loop": true,
-"name": &"LightAttack",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_2uck1")
-}],
-"loop": true,
-"name": &"UniqueAttack",
-"speed": 5.0
-}]
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qggyi"]
 bg_color = Color(0, 0, 0, 1)
 
@@ -2210,30 +2158,31 @@ target_position = Vector2(38, 0)
 collision_mask = 0
 
 [node name="AttackPreviewContainer" type="Node2D" parent="."]
-
-[node name="LightAttack" type="AnimatedSprite2D" parent="AttackPreviewContainer"]
 visible = false
-position = Vector2(0, -16)
-sprite_frames = SubResource("SpriteFrames_5vitb")
-animation = &"LightAttack"
 
-[node name="HeavyAttack" type="AnimatedSprite2D" parent="AttackPreviewContainer"]
+[node name="LightAttack" type="Sprite2D" parent="AttackPreviewContainer"]
 visible = false
-position = Vector2(-3, -23)
-sprite_frames = SubResource("SpriteFrames_5vitb")
-animation = &"HeavyAttack"
+position = Vector2(0, -1)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("9_qggyi")
+region_enabled = true
+region_rect = Rect2(0, 0, 208, 192)
 
-[node name="JumpAttack" type="AnimatedSprite2D" parent="AttackPreviewContainer"]
+[node name="UniqueAttack" type="Sprite2D" parent="AttackPreviewContainer"]
 visible = false
-position = Vector2(-1, -5)
-sprite_frames = SubResource("SpriteFrames_5vitb")
-animation = &"UniqueAttack"
+position = Vector2(0, -1)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("10_mo5kl")
+region_enabled = true
+region_rect = Rect2(16, 96, 48, 48)
 
-[node name="Block" type="AnimatedSprite2D" parent="AttackPreviewContainer"]
+[node name="HeavyAttack" type="Sprite2D" parent="AttackPreviewContainer"]
 visible = false
-position = Vector2(2, -24)
-sprite_frames = SubResource("SpriteFrames_5vitb")
-animation = &"Block"
+position = Vector2(0, -1)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("6_tqevj")
+region_enabled = true
+region_rect = Rect2(288, 544, 192, 208)
 
 [node name="HealthBar" parent="." instance=ExtResource("15_q2u4q")]
 offset_left = -6.0
