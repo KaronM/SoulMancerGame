@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bb8vidtqjlw5d"
+path="res://.godot/imported/17. Unknown Island.ogg-bb167f1f4f370fc76e39839edb9457ac.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Audio/music/ogg/17. Unknown Island.ogg"
+dest_files=["res://.godot/imported/17. Unknown Island.ogg-bb167f1f4f370fc76e39839edb9457ac.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

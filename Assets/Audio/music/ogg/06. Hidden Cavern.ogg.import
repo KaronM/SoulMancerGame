@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bu02mbdk7e5nf"
+path="res://.godot/imported/06. Hidden Cavern.ogg-7798607e105f6feccf8ff63804efda4d.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Audio/music/ogg/06. Hidden Cavern.ogg"
+dest_files=["res://.godot/imported/06. Hidden Cavern.ogg-7798607e105f6feccf8ff63804efda4d.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

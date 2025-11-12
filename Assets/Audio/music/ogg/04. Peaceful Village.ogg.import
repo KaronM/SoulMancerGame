@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cbjs14ur27bh7"
+path="res://.godot/imported/04. Peaceful Village.ogg-08ddc33b7ca297de1d6c6e5923a61823.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Audio/music/ogg/04. Peaceful Village.ogg"
+dest_files=["res://.godot/imported/04. Peaceful Village.ogg-08ddc33b7ca297de1d6c6e5923a61823.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bnd45iyunc0ci"
+path="res://.godot/imported/28. Holy Sanctuary.ogg-45537365add5e229b25c6a488880606c.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Audio/music/ogg/28. Holy Sanctuary.ogg"
+dest_files=["res://.godot/imported/28. Holy Sanctuary.ogg-45537365add5e229b25c6a488880606c.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

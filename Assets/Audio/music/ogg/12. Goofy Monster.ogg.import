@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cu3qc5sfmi7wr"
+path="res://.godot/imported/12. Goofy Monster.ogg-4748e77767285aee0f90f7dce72bf8a8.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Audio/music/ogg/12. Goofy Monster.ogg"
+dest_files=["res://.godot/imported/12. Goofy Monster.ogg-4748e77767285aee0f90f7dce72bf8a8.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

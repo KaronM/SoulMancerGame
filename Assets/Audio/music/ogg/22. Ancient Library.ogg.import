@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bcgnykbmtmbac"
+path="res://.godot/imported/22. Ancient Library.ogg-36f40b4a20aaca205f4576544423370c.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Audio/music/ogg/22. Ancient Library.ogg"
+dest_files=["res://.godot/imported/22. Ancient Library.ogg-36f40b4a20aaca205f4576544423370c.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

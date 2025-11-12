@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=4 uid="uid://baihx1fiurlj3"]
+[gd_scene load_steps=9 format=4 uid="uid://baihx1fiurlj3"]
 
 [ext_resource type="Script" uid="uid://ckkpgo0adcp08" path="res://Scripts/overworld.gd" id="1_4qj6l"]
 [ext_resource type="Texture2D" uid="uid://dy11brmg8f6pa" path="res://Assets/TileSets/Tileset Spring.png" id="1_l45s6"]
 [ext_resource type="PackedScene" uid="uid://cioua47kvtesn" path="res://Scenes/overworld_player.tscn" id="2_6s5ae"]
 [ext_resource type="PackedScene" uid="uid://dwvsp7oxqufwc" path="res://Scenes/overworld_enemy.tscn" id="3_i8gr5"]
 [ext_resource type="PackedScene" uid="uid://bv76u1iea0mvs" path="res://Scenes/game_menu.tscn" id="4_s368d"]
+[ext_resource type="AudioStream" uid="uid://dmqgmk352li4m" path="res://Assets/Audio/music/ogg/02. Lively City.ogg" id="6_rmeny"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6s5ae"]
 texture = ExtResource("1_l45s6")
@@ -100,3 +101,8 @@ tile_set = SubResource("TileSet_i8gr5")
 position = Vector2(86, -61)
 
 [node name="GameMenu" parent="." instance=ExtResource("4_s368d")]
+
+[node name="BGMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_rmeny")
+autoplay = true
+parameters/looping = true

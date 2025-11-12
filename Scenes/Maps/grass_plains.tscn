@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://bise05ws7llal"]
+[gd_scene load_steps=23 format=4 uid="uid://bise05ws7llal"]
 
 [ext_resource type="Texture2D" uid="uid://c6tvqk1shby30" path="res://Assets/TileSets/GrassPlains/Tile_01.png" id="1_d7nfv"]
 [ext_resource type="Texture2D" uid="uid://di73monugln8n" path="res://Assets/TileSets/GrassPlains/Backgrounds/1.png" id="2_5eubn"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cuco33cg4btgk" path="res://Scenes/player.tscn" id="5_c3dwf"]
 [ext_resource type="PackedScene" uid="uid://covnj1vxfiilv" path="res://Scenes/opponent.tscn" id="6_d7nfv"]
 [ext_resource type="PackedScene" uid="uid://doodsj18msg48" path="res://Scenes/Arena/arena.tscn" id="8_lul3h"]
+[ext_resource type="AudioStream" uid="uid://bpd2jief1oisx" path="res://Assets/Audio/music/ogg/01. Battle Theme I (full).ogg" id="11_dccp2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5bhhu"]
 texture = ExtResource("2_5eubn")
@@ -92,3 +93,8 @@ position = Vector2(199, -29)
 
 [node name="Arena" parent="." instance=ExtResource("8_lul3h")]
 position = Vector2(57, -12)
+
+[node name="BattleMusic1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_dccp2")
+autoplay = true
+parameters/looping = true

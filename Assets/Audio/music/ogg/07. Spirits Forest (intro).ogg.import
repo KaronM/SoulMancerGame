@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bcvgbafaient3"
+path="res://.godot/imported/07. Spirits Forest (intro).ogg-89fc8f0bd94e7bff4eba2b808e9d2d6d.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Audio/music/ogg/07. Spirits Forest (intro).ogg"
+dest_files=["res://.godot/imported/07. Spirits Forest (intro).ogg-89fc8f0bd94e7bff4eba2b808e9d2d6d.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
