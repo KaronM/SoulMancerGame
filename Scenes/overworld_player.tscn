@@ -301,7 +301,7 @@ sprite_frames = SubResource("SpriteFrames_o2tky")
 animation = &"Idle_Front"
 autoplay = "Idle_Front"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["Player"]]
 shape = SubResource("CapsuleShape2D_3dwyp")
 
 [node name="Camera2D" type="Camera2D" parent="."]
