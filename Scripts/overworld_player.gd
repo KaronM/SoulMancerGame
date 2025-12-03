@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+var key_count = 0
 var direction : Vector2 = Vector2.ZERO
 var speed : float = 100.0
 var enemy
@@ -8,10 +9,15 @@ var scenetransitioned = false
 var characterReserve = []
 var firstStarted = false
 func _ready() -> void:
-	enemy = get_node("../OverworldEnemy")
-	enemyInteractable = get_node("../OverworldEnemy/Area2D")
-	
-	enemyInteractable.body_entered.connect(interact)
+	for child in get_parent().get_children():
+		
+		if "OverworldEnemy" in child.name:
+			
+			var area = child.get_node_or_null("Area2D")
+			
+			if area:
+				if not area.body_entered.is_connected(interact):
+					area.body_entered.connect(interact)
 	
 	if !firstStarted:
 		createStartingCharacters()

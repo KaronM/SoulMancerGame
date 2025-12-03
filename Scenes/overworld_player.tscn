@@ -293,7 +293,7 @@ animations = [{
 radius = 9.0
 height = 20.0
 
-[node name="OverworldPlayer" type="CharacterBody2D"]
+[node name="OverworldPlayer" type="CharacterBody2D" groups=["Player"]]
 script = ExtResource("1_c8xp0")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
