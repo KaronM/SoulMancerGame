@@ -293,7 +293,7 @@ animations = [{
 radius = 9.0
 height = 20.0
 
-[node name="OverworldPlayer" type="CharacterBody2D"]
+[node name="OverworldPlayer" type="CharacterBody2D" groups=["Player"]]
 script = ExtResource("1_c8xp0")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -301,8 +301,8 @@ sprite_frames = SubResource("SpriteFrames_o2tky")
 animation = &"Idle_Front"
 autoplay = "Idle_Front"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["Player"]]
 shape = SubResource("CapsuleShape2D_3dwyp")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(2.5, 2.5)
+zoom = Vector2(3, 3)

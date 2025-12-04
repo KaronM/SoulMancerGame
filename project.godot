@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="SoulMancer"
-run/main_scene="uid://baihx1fiurlj3"
+run/main_scene="uid://bickh7l15qyfw"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -37,6 +37,7 @@ Hitbox=""
 Hurtbox=""
 Player_Projectile=""
 Opponent_Projectile=""
+Enemies=""
 
 [importer_defaults]
 
