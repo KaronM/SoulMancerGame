@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="SoulMancer"
-run/main_scene="uid://baihx1fiurlj3"
+run/main_scene="uid://b61jxc1n5xcsu"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -22,6 +22,7 @@ Movement="*res://Scripts/movement.gd"
 State="*res://Scripts/States/state.gd"
 Entity="*res://Scripts/entity.gd"
 HitBoxes="*res://Scripts/hit_boxes.gd"
+SoundManager="*res://Scripts/sound_manager.gd"
 
 [display]
 
@@ -38,6 +39,7 @@ Hurtbox=""
 Player_Projectile=""
 Opponent_Projectile=""
 OverworldEnemy=""
+<<<<<<<HEADOverworldEnemy=""
 
 [importer_defaults]
 

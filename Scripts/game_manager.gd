@@ -5,6 +5,10 @@ var entity: CharacterBody2D
 var Player: CharacterBody2D
 var Opponent: CharacterBody2D
 
+var globalpos: Vector2  #for returning back to position after match
+var exitingDetected: bool = false #for disabling entering hitbox for a little bit of time for retriggering
+
+
 #to pass to player and enemy for ingame instantiation
 var characterTeam = []
 var enemyTeam = []
@@ -147,6 +151,7 @@ func endMatch():
 	matchEnd = true
 	matchStart = false
 	roundStart = false
+	exitingDetected = true
 	
 #reset match and round vars for next match
 func exitMatch():
@@ -159,13 +164,15 @@ func exitMatch():
 	enemyTeam.clear()
 	await get_tree().process_frame
 	
+	
+	
 	#print("arenaTransitioned")
 	var transition = get_node("/root/GrassPlains/BattleTransition")
 	transition.close()
 	
 	
 	await get_tree().create_timer(2).timeout
-	get_tree().change_scene_to_file("res://Scenes/overworld.tscn") 
+	get_tree().change_scene_to_file("res://Scenes/overworld_old.tscn") 
 	
 	
 

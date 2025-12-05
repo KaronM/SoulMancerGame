@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+var key_count = 0
 var direction : Vector2 = Vector2.ZERO
 var speed : float = 100.0
 var enemy
@@ -14,13 +15,31 @@ var characterReserve = []
 var firstStarted = false
 
 func _ready() -> void:
+	if GameManager.exitingDetected:
+		GameManager.characterTeam.clear()
+		global_position = GameManager.globalpos
+		$Area2D.monitorable = false
+		$Area2D.monitoring = false
+	else:
+		$Area2D.monitorable = true
+		$Area2D.monitoring = true	
+	scenetransitioned = false
 	money += GameManager.moneyGained 
-	$Area2D.monitorable = true
-	$Area2D.monitoring = true
+	
 	$Area2D.area_entered.connect(interact)
 	enemy = get_node("../OverworldEnemy")
 	if GameManager.addCharacters:
-		createStartingCharacters()
+		for child in get_parent().get_children():
+			
+			if "OverworldEnemy" in child.name:
+				
+				var area = child.get_node_or_null("Area2D")
+				if area:
+					if not area.body_entered.is_connected(interact):
+						area.body_entered.connect(interact)
+		
+	GameManager.characterTeam.append_array(startingCharacters)	
+	
 	
 	#GameManager.characterTeam.append_array(startingCharacters)	
 
@@ -60,6 +79,13 @@ func _physics_process(delta: float) -> void:
 			if direction.x != 0:
 				$AnimatedSprite2D.play("Walk_Right")
 				$AnimatedSprite2D.flip_h = direction.x < 0
+		
+				
+		if GameManager.exitingDetected: #give player time to get out of enemys interaction zone
+			await get_tree().create_timer(3).timeout
+			GameManager.exitingDetected = false
+			$Area2D.monitorable = true
+			$Area2D.monitoring = true	
 
 
 	# Get the input direction and handle the movement/deceleration.
@@ -72,6 +98,7 @@ func createStartingCharacters():
 
 
 func interact(area:Area2D):
+
 	if area.get_parent().is_in_group("OverworldEnemy") and scenetransitioned == false: 
 		enemy = area.get_parent()
 		$Area2D.monitorable = false
@@ -87,4 +114,6 @@ func interact(area:Area2D):
 		get_tree().change_scene_to_file("res://Scenes/Maps/grass_plains.tscn")  
 		scenetransitioned=true
 		GameManager.startMatch()
+		GameManager.globalpos = global_position
+	
  		#GameManager.arenaTransitioned = false

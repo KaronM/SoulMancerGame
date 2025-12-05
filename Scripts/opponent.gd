@@ -24,7 +24,7 @@ func _ready() -> void:
 	player = get_node("../Player")
 	
 	var currentCharacter = GameManager.enemyTeam[0]  # this is 1 (Slime)
-
+	
 	print(currentCharacterPath)
 	
 	for i in range(GameManager.enemyTeam.size()):

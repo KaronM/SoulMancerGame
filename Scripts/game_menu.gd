@@ -3,7 +3,7 @@ extends CanvasLayer
 var selectedChar: CharacterData = null
 var selectedCharTex: AtlasTexture = null
 var levelExpMultiplier :int = 40#for increase
-
+var added
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -11,6 +11,7 @@ func _ready() -> void:
 	#await get_tree().create
 	addCharactersToPartySelect()
 	if GameManager.addCharacters:
+		
 		GameManager.addCharacters = false
 		
 	else:
@@ -23,12 +24,13 @@ func addCharactersToPartySelect():
 	var team = get_node_or_null("MarginContainer/HBoxContainer/VBoxContainer2/NinePatchRect/Party/Team")
 	for i in range(GameManager.characterTeam.size()):
 		#make sure it doesnt extend past it
-		var box = team.get_node("MarginContainer" + str(i + 1))
-		var button = box.get_node("Button")
-		var char = GameManager.characterTeam[i]
-		if button.has_method("loadCharacter"):
-			button.loadCharacter(char)
-	
+		if i+1 <= 3:
+			var box = team.get_node("MarginContainer" + str(i + 1))
+			var button = box.get_node("Button")
+			var char = GameManager.characterTeam[i]
+			if button.has_method("loadCharacter"):
+				button.loadCharacter(char)
+		
 	
 
 func loadCharacterData():
