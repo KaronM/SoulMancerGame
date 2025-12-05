@@ -1,6 +1,6 @@
 [gd_scene load_steps=34 format=3 uid="uid://dxxyd5pws41wx"]
 
-[ext_resource type="Script" uid="uid://b8do6tmufqwhc" path="res://Scripts/sentinel.gd" id="1_j8fd0"]
+[ext_resource type="Script" path="res://Scripts/sentinel.gd" id="1_j8fd0"]
 [ext_resource type="Shader" uid="uid://vjkylaod1lbt" path="res://Scenes/Characters/slime.gdshader" id="2_lytlc"]
 [ext_resource type="Texture2D" uid="uid://ciot7v1cmmvci" path="res://Assets/Characters/Sentinel/Moveset/sentinelIdle.png" id="3_5rcrn"]
 [ext_resource type="Texture2D" uid="uid://cn0j6rim48epo" path="res://Assets/Characters/Sentinel/Moveset/sentinelLightAttack.png" id="3_j8fd0"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=33 format=3 uid="uid://dh5rdsn6vdama"]
 
-[ext_resource type="Script" uid="uid://db2lscr7vqdm5" path="res://Scripts/golem.gd" id="1_3grps"]
+[ext_resource type="Script" path="res://Scripts/golem.gd" id="1_3grps"]
 [ext_resource type="Shader" uid="uid://vjkylaod1lbt" path="res://Scenes/Characters/slime.gdshader" id="2_cv8lq"]
 [ext_resource type="Texture2D" uid="uid://c85pim4dpgafs" path="res://Assets/Characters/Golem/Moveset/GolemIdle.png" id="3_kul20"]
 [ext_resource type="PackedScene" uid="uid://bjfdbcdeno77s" path="res://Scenes/States/state_machine.tscn" id="4_0exp1"]

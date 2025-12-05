@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dbdx6b8xj5dcn" path="res://Assets/Gui/UI_TravelBook_Slot01a.png" id="1_r7qr8"]
 [ext_resource type="FontFile" uid="uid://t2q00w257m7v" path="res://Assets/Gui/ARCADECLASSIC.TTF" id="2_in7i6"]
 [ext_resource type="Script" uid="uid://fqo3rw2i4hx1" path="res://Scripts/party_btn.gd" id="3_5a81j"]
-[ext_resource type="Script" uid="uid://demxvajc3bkqy" path="res://Scripts/progress_bar.gd" id="6_4sb7q"]
+[ext_resource type="Script" path="res://Scripts/progress_bar.gd" id="6_4sb7q"]
 [ext_resource type="Script" uid="uid://l6df7nwp1t8l" path="res://Scripts/button.gd" id="6_6u3uv"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5a81j"]
