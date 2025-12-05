@@ -195,13 +195,13 @@ visible = false
 
 [node name="Enemies" type="Node" parent="."]
 
-[node name="OverworldEnemy" parent="Enemies" groups=["OverworldEnemy"] instance=ExtResource("3_i8gr5")]
+[node name="OverworldEnemy" parent="Enemies" instance=ExtResource("3_i8gr5")]
 position = Vector2(86, -61)
 characters = Array[ExtResource("5_hf0oe")]([SubResource("Resource_2ngsa"), SubResource("Resource_v1c68")])
 moneyValue = 5
 experienceValue = 3000
 
-[node name="OverworldEnemy2" parent="Enemies" groups=["OverworldEnemy"] instance=ExtResource("3_i8gr5")]
+[node name="OverworldEnemy2" parent="Enemies" instance=ExtResource("3_i8gr5")]
 position = Vector2(-81, -59)
 characters = Array[ExtResource("5_hf0oe")]([SubResource("Resource_auytq"), SubResource("Resource_2ngsa"), SubResource("Resource_c0h7r")])
 moneyValue = 50
