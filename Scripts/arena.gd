@@ -107,3 +107,22 @@ func calculate_zoom_for_players(p1: Vector2, p2: Vector2) -> Vector2:
 
 	# Return uniform zoom vector for Camera2D
 	return Vector2(zoom_val, zoom_val)
+
+
+#sfx manager --------------------
+func _input(event):
+	if event.is_action_pressed("ui_up") or \
+	   event.is_action_pressed("ui_down") or \
+	   event.is_action_pressed("ui_left") or \
+	   event.is_action_pressed("ui_right"):
+		SoundManager.play_nav()
+		
+	if event.is_action_pressed("ui_accept"):
+		SoundManager.play_sword()
+ 
+	if event is InputEventKey and event.pressed:
+		match event.keycode:
+			KEY_TAB:
+				SoundManager.play_ding()
+			KEY_R:
+				SoundManager.play_cancel()
