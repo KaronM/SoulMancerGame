@@ -304,5 +304,16 @@ autoplay = "Idle_Front"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["Player"]]
 shape = SubResource("CapsuleShape2D_3dwyp")
 
+<<<<<<< Updated upstream
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(3, 3)
+=======
+[node name="Camera2D" type="Camera2D" parent="." groups=["Player"]]
+zoom = Vector2(3.5, 3.5)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_c8xp0")
+debug_color = Color(0.810511, 0.408873, 0.123134, 0.42)
+>>>>>>> Stashed changes

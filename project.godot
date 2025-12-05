@@ -11,7 +11,11 @@ config_version=5
 [application]
 
 config/name="SoulMancer"
+<<<<<<< Updated upstream
 run/main_scene="uid://bickh7l15qyfw"
+=======
+run/main_scene="uid://bx513s21rslcp"
+>>>>>>> Stashed changes
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -25,9 +29,7 @@ HitBoxes="*res://Scripts/hit_boxes.gd"
 
 [display]
 
-window/stretch/mode="viewport"
-window/stretch/aspect="ignore"
-window/stretch/scale_mode="integer"
+window/stretch/mode="canvas_items"
 
 [global_group]
 
@@ -127,3 +129,5 @@ Inspect={
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+textures/vram_compression/import_s3tc_bptc=true
+textures/vram_compression/import_etc2_astc=true

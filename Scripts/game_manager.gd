@@ -5,7 +5,15 @@ var entity: CharacterBody2D
 var Player: CharacterBody2D
 var Opponent: CharacterBody2D
 
+<<<<<<< Updated upstream
 #to pass to player for ingame instantiation
+=======
+var globalpos: Vector2  #for returning back to position after match
+var exitingDetected: bool = false #for disabling entering hitbox for a little bit of time for retriggering
+var key_count: int = 0
+
+#to pass to player and enemy for ingame instantiation
+>>>>>>> Stashed changes
 var characterTeam = []
 #array of all characters created for character data (for character Ids)
 var characterCounter = 0
