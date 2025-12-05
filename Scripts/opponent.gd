@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var team =[GameManager.characters.Slime,GameManager.characters.ManEater,GameManager.characters.Slime]
+var team =[GameManager.characters.Slime]
 var actionTokens : int = 5
 var currentCharacter
 var currentCharacterPath : String 
@@ -14,6 +14,8 @@ var selectedCharacter
 var characterOrder = []
 
 #make sure that moves made are 
+
+
 var movesGenerated = false
 #when the round actually starts
 
@@ -21,17 +23,20 @@ var movesGenerated = false
 func _ready() -> void:
 	player = get_node("../Player")
 	
-	var currentCharacter = team[0]  # this is 1 (Slime)
-
+	var currentCharacter = GameManager.enemyTeam[0]  # this is 1 (Slime)
+	
 	print(currentCharacterPath)
 	
-	for i in range(team.size()):
-		var char = team[i]
-		var currentCharacterPath = GameManager.characterPaths.get(char)
+	for i in range(GameManager.enemyTeam.size()):
+		var char = GameManager.enemyTeam[i]
+		var currentCharacterPath = GameManager.characterPaths.get(char.characterType)
 		var scene : PackedScene = load(currentCharacterPath)
 	
 		if scene:
 			var instance = scene.instantiate()
+			instance.setHealth(char.maxHealth,instance.get_node("HealthBar"))
+			instance.speed = 100 + (10 * (char.speed/100))
+			instance.attack = char.attack
 			instance.name = "Opponent_%d" % i
 			add_child(instance)
 			instance.set_collision_layer_value(3, true) 
@@ -78,9 +83,31 @@ func generateMoves():
 func refreshActionTokens():
 	usedTokens = 0
 	
+func applyStatus(status: GameManager.statuses):
+	for char in characterInstances:
+		if char.defeated != true:
+			var icon = load(GameManager.statusIcons[status])
+			var effect = load(GameManager.statusEffects[status])
+			char.statusEffect = status
+			char.get_node("StatusIcon").texture = icon
+			char.get_node("StatusEffects").texture = effect
+
+func removeStatuses():
+	for char in characterInstances:
+		char.get_node("StatusIcon").texture = null
+		char.get_node("StatusEffects").texture = null
+		char.get_node("StatusEffects2").texture = null
+	
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	print(characterOrder, " Order")
+
+	for char in characterInstances:
+		if char is Sentinel and char.applyShielding == true:
+			applyStatus(GameManager.statuses.Shield)
+			
+	
 	
 	if !GameManager.roundStart and !movesGenerated:
 		characterInstances = characterInstances.filter(func(c): return not c.defeated)

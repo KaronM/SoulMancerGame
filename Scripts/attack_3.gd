@@ -12,8 +12,6 @@ func _on_process(_delta : float) -> void:
 func _on_physics_process(_delta : float) -> void:
 	if animationPlayer.current_animation != "UniqueAttack":
 		animationPlayer.play("UniqueAttack")
-
-	
 	
 	
 func _on_animation_finished_unique(anim_name: String) -> void:
@@ -41,6 +39,8 @@ func _on_enter(owner: CharacterBody2D) -> void:
 	animationPlayer = entity.get_node("AnimationPlayer")
 	animationPlayer.play("UniqueAttack")
 	animationPlayer.connect("animation_finished", Callable(self, "_on_animation_finished_unique"))
+	
+	
 
 #finish state
 func _on_exit() -> void:

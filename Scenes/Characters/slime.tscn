@@ -2168,6 +2168,14 @@ texture = ExtResource("9_qggyi")
 region_enabled = true
 region_rect = Rect2(0, 0, 208, 192)
 
+[node name="Idle" type="Sprite2D" parent="AttackPreviewContainer"]
+visible = false
+position = Vector2(0, -1)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("9_qggyi")
+region_enabled = true
+region_rect = Rect2(0, 0, 208, 192)
+
 [node name="UniqueAttack" type="Sprite2D" parent="AttackPreviewContainer"]
 visible = false
 position = Vector2(0, -1)
@@ -2234,5 +2242,20 @@ projectile_Texture = ExtResource("22_qggyi")
 launch_velocity = 100.0
 launch_angle = -10.0
 damage = 100
+
+[node name="StatusEffects" type="Sprite2D" parent="."]
+z_index = 7
+z_as_relative = false
+position = Vector2(0, -15)
+
+[node name="StatusIcon" type="Sprite2D" parent="."]
+z_index = 7
+z_as_relative = false
+position = Vector2(0, -45)
+scale = Vector2(0.3, 0.3)
+
+[node name="StatusEffects2" type="Sprite2D" parent="."]
+position = Vector2(0, -15)
+scale = Vector2(0.5, 0.5)
 
 [connection signal="raycast_hit" from="EntityDetection" to="." method="_on_entity_detection_raycast_hit"]

@@ -14,12 +14,13 @@ var Player
 #for zooming both sides before match starts to check enemies
 var inspect = false
 func _ready() -> void:
+	set_process(true)
 	#cam.global_position.y = playerNode.global_position.y +2000
 	#$PlayerOptions/Control.visible = false
 	$PlayerOptions.hide()
 # ensure all children hide
 	$Start.show()
-	
+	$Control.hide()
 	cam.offset.y = 30
 	
 
@@ -33,17 +34,30 @@ func _ready() -> void:
 	cam.global_position = center
 	Player =  get_node("../Player")
 	
+	var transition = get_node("../BattleTransition")
+	transition.open()
+	
 
 func _process(delta: float) -> void:
 	
 	#print("labes position", $Labels/HBoxContainer.position)
-		
+	
 	if GameManager.matchStart:
-		
+		$Control.show()
 		$PlayerOptions.show()
 		$Start.hide()
 		
+		
+		
+		
+		#reset in case of glitch
+		
+		
+		
 		if !GameManager.roundStart:
+			
+			#update round count
+			$Control/Round/Label.text = "Round " + str(GameManager.rounds)  
 			
 			if(Input.is_action_just_pressed("Inspect")):
 				toggleInspect()
@@ -80,9 +94,79 @@ func _process(delta: float) -> void:
 		cam.global_position = center
 		cam.zoom = calculate_zoom_for_players(playerNode.global_position, enemyNode.global_position)
 		
+	#to reset in case of bug stuckage
+	if Input.is_action_just_pressed("Menu"):
+		GameManager.roundStart = false
+		GameManager.matchStart = false
+		GameManager.matchEnd = false
+		GameManager.Player.roundInProgress = false 
+		GameManager.charsAtSpawn = 0
+		GameManager.activeCharacters = 0
+		GameManager.rounds = 1
+		set_process(false)
+		get_parent().get_tree().reload_current_scene()
+				
 			
-			
+#for displaying levels in the end
+func createCharacterLevelLabels():
 
+	var RoundEndLevels = $RoundEndLabel/Levels
+
+	#load character image in level displays
+	for chars in GameManager.characterTeam:
+		
+		var currentCharacterPath = GameManager.characterPaths.get(chars.characterType)
+		var char_scene = load(currentCharacterPath)
+		var char = char_scene.instantiate()
+		var scene_state = char_scene.get_state()
+		var levelBar = ProgressBar.new()
+		var currentExpLabel = Label.new()
+		var sprite = TextureRect.new()  # CHANGED THIS LINE - was Sprite2D.new()
+		var height 
+		# Configure TextureRect
+		sprite.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+		sprite.custom_minimum_size = Vector2(32, 32)  # Set appropriate size
+		
+		#look inside the scene for the node "AttackPreviewContainer/Idle"
+		for k in range(scene_state.get_node_count()):
+			var path = str(scene_state.get_node_path(k))
+			if path.ends_with("AttackPreviewContainer/Idle"):
+				
+				var tex: Texture2D = null
+				var region_enabled := false
+				var region_rect := Rect2()
+				for j in range(scene_state.get_node_property_count(k)):
+					var prop_name = scene_state.get_node_property_name(k, j)
+					match prop_name:
+						"texture":
+							tex = scene_state.get_node_property_value(k, j)
+						"region_enabled":
+							region_enabled = scene_state.get_node_property_value(k, j)
+						"region_rect":
+							region_rect = scene_state.get_node_property_value(k, j)
+				#create cropped icon preview
+				if tex:
+					if region_enabled:
+						# Create an atlas texture to show only the region
+						var atlas := AtlasTexture.new()
+						atlas.atlas = tex
+						atlas.region = region_rect
+						sprite.texture = atlas
+						height = atlas.get_height()
+					else:
+						sprite.texture = tex
+					
+					print("added")
+				else:
+					print("⚠️ No texture found in", currentCharacterPath)
+				break
+			
+	
+		RoundEndLevels.add_child(sprite)
+		RoundEndLevels.add_child(levelBar)
+		sprite.position.y= 200
+		levelBar.size = Vector2(500,15)
+		
 
 
 func toggleInspect():

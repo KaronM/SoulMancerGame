@@ -1,0 +1,72 @@
+[gd_scene load_steps=2 format=3 uid="uid://yl73io7vguid"]
+
+[ext_resource type="Script" uid="uid://cavucjo3kw4tk" path="res://battleTransition.gd" id="1_akxfr"]
+
+[node name="BattleTransition" type="CanvasLayer"]
+script = ExtResource("1_akxfr")
+
+[node name="ScreenHolder1" type="Control" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Screen" type="ColorRect" parent="ScreenHolder1"]
+custom_minimum_size = Vector2(0, 175)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 175.0
+grow_horizontal = 2
+size_flags_horizontal = 2
+size_flags_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Screen3" type="ColorRect" parent="ScreenHolder1"]
+custom_minimum_size = Vector2(0, 175)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 350.0
+offset_bottom = 525.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+size_flags_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="ScreenHolder2" type="Control" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+
+[node name="Screen2" type="ColorRect" parent="ScreenHolder2"]
+custom_minimum_size = Vector2(0, 175)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 175.0
+offset_bottom = 350.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+size_flags_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Screen4" type="ColorRect" parent="ScreenHolder2"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 525.0
+offset_bottom = 700.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+size_flags_vertical = 2
+color = Color(0, 0, 0, 1)

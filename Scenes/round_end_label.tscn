@@ -54,7 +54,7 @@ theme_override_fonts/font = ExtResource("2_0g26e")
 theme_override_font_sizes/font_size = 20
 text = "Exit Match"
 
-[node name="Label2" type="Label" parent="NinePatchRect"]
+[node name="Money" type="Label" parent="NinePatchRect"]
 layout_mode = 0
 offset_left = 89.0
 offset_top = 103.0
@@ -62,10 +62,26 @@ offset_right = 209.0
 offset_bottom = 126.0
 text = "Money Earned: "
 
-[node name="Label3" type="Label" parent="NinePatchRect"]
+[node name="Experience" type="Label" parent="NinePatchRect"]
 layout_mode = 0
 offset_left = 91.0
 offset_top = 137.0
 offset_right = 211.0
 offset_bottom = 160.0
 text = "Experience Earned: "
+
+[node name="Levels" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(0, 125)
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 143.0
+offset_top = -152.0
+offset_right = 143.0
+offset_bottom = 48.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.790461, 0.75666)
+size_flags_horizontal = 3
+size_flags_vertical = 3

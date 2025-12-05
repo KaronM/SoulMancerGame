@@ -1,17 +1,19 @@
-[gd_scene load_steps=37 format=4 uid="uid://baihx1fiurlj3"]
+[gd_scene load_steps=43 format=4 uid="uid://d0lp7vcaq02ug"]
 
 [ext_resource type="Script" uid="uid://ckkpgo0adcp08" path="res://Scripts/overworld.gd" id="1_8rj3b"]
 [ext_resource type="Texture2D" uid="uid://dsl6gbp1swtdf" path="res://Assets/TileSets/roguelikeSheet_transparent.png" id="2_lpp51"]
-[ext_resource type="Script" uid="uid://cunnirjsc8so5" path="res://Scripts/teleporter_d.gd" id="3_j0s7q"]
-[ext_resource type="Script" uid="uid://bcnu40oo1c63j" path="res://Scripts/teleporter_b.gd" id="4_2vhgl"]
+[ext_resource type="Script" path="res://Scripts/teleporter_d.gd" id="3_j0s7q"]
+[ext_resource type="Script" path="res://Scripts/teleporter_b.gd" id="4_2vhgl"]
 [ext_resource type="TileSet" uid="uid://bngn3g8t5f8x3" path="res://Scenes/overworld.tres" id="5_xexbk"]
-[ext_resource type="PackedScene" uid="uid://bx6vlssb3l6rq" path="res://Scenes/key.tscn" id="6_w3cj0"]
-[ext_resource type="Script" uid="uid://cqboqgjfte4ps" path="res://Scripts/teleporter_a.gd" id="7_81ohw"]
-[ext_resource type="Script" uid="uid://de1wb7etyu7fi" path="res://Scripts/teleporter_c.gd" id="8_lnvnr"]
+[ext_resource type="PackedScene" uid="uid://joxp55fpknoj" path="res://Scenes/key.tscn" id="6_w3cj0"]
+[ext_resource type="Script" path="res://Scripts/teleporter_a.gd" id="7_81ohw"]
+[ext_resource type="Script" path="res://Scripts/teleporter_c.gd" id="8_lnvnr"]
 [ext_resource type="PackedScene" uid="uid://cioua47kvtesn" path="res://Scenes/overworld_player.tscn" id="9_xrajl"]
 [ext_resource type="PackedScene" uid="uid://dwvsp7oxqufwc" path="res://Scenes/overworld_enemy.tscn" id="10_uq60s"]
+[ext_resource type="Script" uid="uid://mxi1dq0to143" path="res://Scripts/character_data.gd" id="11_j0s7q"]
 [ext_resource type="PackedScene" uid="uid://bv76u1iea0mvs" path="res://Scenes/game_menu.tscn" id="11_qv75g"]
 [ext_resource type="AudioStream" uid="uid://dmqgmk352li4m" path="res://Assets/Audio/music/ogg/02. Lively City.ogg" id="12_p4r6w"]
+[ext_resource type="PackedScene" uid="uid://yl73io7vguid" path="res://Scenes/Arena/battleTransition.tscn" id="13_lpp51"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w7v6x"]
 texture = ExtResource("2_lpp51")
@@ -17593,6 +17595,90 @@ size = Vector2(32, 20)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c0h7r"]
 size = Vector2(30, 12)
 
+[sub_resource type="Resource" id="Resource_2vhgl"]
+script = ExtResource("11_j0s7q")
+characterId = 6
+characterType = 1
+characterName = ""
+level = 10
+currentExp = 0
+maxHealth = 100
+attack = 40
+speed = 60
+experienceValue = 10
+movesetsLevel = {
+"Block": 5,
+"HeavyAttack": 1,
+"LightAttack": 1
+}
+equippedItems = Array[String]([])
+inventory = Array[String]([])
+base_defense = 5
+metadata/_custom_type_script = "uid://mxi1dq0to143"
+
+[sub_resource type="Resource" id="Resource_xexbk"]
+script = ExtResource("11_j0s7q")
+characterId = 7
+characterType = 6
+characterName = ""
+level = 10
+currentExp = 0
+maxHealth = 100
+attack = 20
+speed = 60
+experienceValue = 10
+movesetsLevel = {
+"Block": 5,
+"HeavyAttack": 1,
+"LightAttack": 1
+}
+equippedItems = Array[String]([])
+inventory = Array[String]([])
+base_defense = 5
+metadata/_custom_type_script = "uid://mxi1dq0to143"
+
+[sub_resource type="Resource" id="Resource_w3cj0"]
+script = ExtResource("11_j0s7q")
+characterId = 9
+characterType = 1
+characterName = ""
+level = 30
+currentExp = 0
+maxHealth = 300
+attack = 40
+speed = 10
+experienceValue = 10
+movesetsLevel = {
+"Block": 5,
+"HeavyAttack": 1,
+"LightAttack": 1
+}
+equippedItems = Array[String]([])
+inventory = Array[String]([])
+base_defense = 5
+metadata/_custom_type_script = "uid://mxi1dq0to143"
+
+[sub_resource type="Resource" id="Resource_81ohw"]
+script = ExtResource("11_j0s7q")
+characterId = 0
+characterType = 1
+characterName = ""
+level = 2
+currentExp = 0
+maxHealth = 100
+attack = 20
+speed = 50
+experienceValue = 10
+movesetsLevel = {
+"Block": 5,
+"HeavyAttack": 1,
+"LightAttack": 1
+}
+equippedItems = Array[String]([])
+inventory = Array[String]([])
+base_defense = 5
+metadata/_custom_type_script = "uid://mxi1dq0to143"
+
 [node name="Overworld" type="Node2D"]
 script = ExtResource("1_8rj3b")
 
@@ -17743,10 +17829,23 @@ position = Vector2(-2, 412)
 [node name="OverworldEnemy2" parent="." groups=["Enemies"] instance=ExtResource("10_uq60s")]
 z_index = 9
 position = Vector2(84, -1036)
+scale = Vector2(1, 0.965152)
+characters = Array[ExtResource("11_j0s7q")]([SubResource("Resource_2vhgl"), SubResource("Resource_xexbk"), SubResource("Resource_w3cj0")])
+moneyValue = 300
+experienceValue = 1000
+
+[node name="OverworldEnemy3" parent="." groups=["Enemies"] instance=ExtResource("10_uq60s")]
+z_index = 9
+position = Vector2(225, -843)
+scale = Vector2(1, 0.965152)
+characters = Array[ExtResource("11_j0s7q")]([SubResource("Resource_2vhgl"), SubResource("Resource_xexbk"), SubResource("Resource_w3cj0")])
 
 [node name="OverworldEnemy" parent="." groups=["Enemies"] instance=ExtResource("10_uq60s")]
 z_index = 9
 position = Vector2(-100, 44)
+characters = Array[ExtResource("11_j0s7q")]([SubResource("Resource_81ohw")])
+moneyValue = 15
+experienceValue = 20
 
 [node name="GameMenu" parent="." instance=ExtResource("11_qv75g")]
 
@@ -17754,6 +17853,9 @@ position = Vector2(-100, 44)
 stream = ExtResource("12_p4r6w")
 autoplay = true
 parameters/looping = true
+
+[node name="BattleTransition" parent="." instance=ExtResource("13_lpp51")]
+visible = false
 
 [connection signal="body_entered" from="Dungeon/Teleporter D" to="Dungeon/Teleporter D" method="_on_body_entered"]
 [connection signal="body_entered" from="Desert/TeleporterB" to="Desert/TeleporterB" method="_on_body_entered"]

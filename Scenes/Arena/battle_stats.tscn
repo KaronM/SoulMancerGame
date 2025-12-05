@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dddmaum78yuav"]
 
-[ext_resource type="Script" uid="uid://cskpyu074nt8j" path="res://Scripts/battle.gd" id="1_oi6o4"]
+[ext_resource type="Script" uid="uid://cavucjo3kw4tk" path="res://battleTransition.gd" id="1_oi6o4"]
 
 [node name="BattleStats" type="Control"]
 layout_mode = 3

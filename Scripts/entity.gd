@@ -15,6 +15,8 @@ var currentState
 @onready var rayCast = $EntityDetection
 @onready var healthBar = $HealthBar
 
+var statusEffect: GameManager.statuses
+
 #detect if round has started, make sure round start is not activated multiple times 
 var roundStarted
 
@@ -47,6 +49,21 @@ var processed_index = 0
 
 var defeated = false
 
+#stats
+var speed: int
+var attack:int
+var defense:int
+
+#for keeping track of movesets used for moove cooldown tracking
+var movesetRoundUsed = {}
+
+
+func setHealth(health: int, healthBar: ProgressBar):
+	#healthBar.maxHealth
+	if healthBar.has_method("init_health"):
+		healthBar.init_health(health)
+		healthBar._set_health(health)
+		
 
 #initialize variables of children and roots
 func initialize(parent: CharacterBody2D) -> void:
@@ -55,8 +72,7 @@ func initialize(parent: CharacterBody2D) -> void:
 	#let gamemanager know character is still alive
 	GameManager.activeCharacters += 1
 	#hit boxes
-	#parent = get_parent()
-	
+
 	#enable detections for raycasts, disable if not 
 
 	#
@@ -67,6 +83,7 @@ func initialize(parent: CharacterBody2D) -> void:
 	for hitbox in $HitBoxContainer.get_children():
 		hitbox.position = hitbox.position # Force refresh
 		hitbox.global_position = hitbox.global_position 
+		hitbox.damage += (10 * attack/100)
 	#sets orientation
 	if parent.is_in_group("Player"):
 		parent.addMoveOptions()
@@ -87,7 +104,7 @@ func initialize(parent: CharacterBody2D) -> void:
 	hurtbox.connect("blocked", Callable(self, "block"))
 	#states
 	#print(get_tree().get_root().name)
-	#set_collision_mask_value(1, false)
+
 	
 	#sets states
 	states = {
@@ -117,6 +134,9 @@ func initialize(parent: CharacterBody2D) -> void:
 
 
 func process(parent: CharacterBody2D, delta: float) -> void:
+	
+	#updata daamge values for hitboxes with attack stats:
+	
 	
 	#for taking moves from parent queue to self
 	#parent generates move with character name , move. This parses it and adds the move part to local queue
@@ -210,6 +230,17 @@ func process(parent: CharacterBody2D, delta: float) -> void:
 
 func main(delta: float, parent: CharacterBody2D, moveRanges: Dictionary) -> void:
 	if !defeated:
+		#apply statuses
+		if statusEffect == GameManager.statuses.Shield:
+			$StatusEffects.scale = Vector2(0.5,0.5)
+			$StatusIcon.scale = Vector2(0.3,0.3)
+			if self is Golem:
+				$StatusEffects.scale = Vector2(0.75,0.75)
+			
+		if statusEffect == GameManager.statuses.None:
+			$StatusEffects.texture = null
+			$StatusIcon.texture = null
+		
 		
 		#check if raycast is colliding
 		if rayCast.is_colliding():
@@ -223,10 +254,6 @@ func main(delta: float, parent: CharacterBody2D, moveRanges: Dictionary) -> void
 		Movement.apply_gravity(self,delta)
 		move_and_slide()
 		
-		#print(self.name, " is home ", home)
-		#print("Spawn is " + str(spawnX))
-		#change states when round starts
-
 		#set Ray casts for move
 		if moveQueues.size() > 0:
 			if parent.is_in_group("Player"):
@@ -258,9 +285,7 @@ func main(delta: float, parent: CharacterBody2D, moveRanges: Dictionary) -> void
 				else:
 					hurtbox.isBlocking = false
 				
-
 				#depending on order add delay between walking:
-				
 			
 				var index = parent.characterOrder.find(self.name)
 				if index > 0:  # Only if not the first character
@@ -312,6 +337,7 @@ func remove_move(move_name: String) -> void:
 		
 #connection to raycast hit signal
 func _on_entity_detection_raycast_hit():
+	
 	if !defeated:
 		print("encountered")
 		if moveQueues.size() > 0:
@@ -334,7 +360,7 @@ func dead():
 
 #when hurt by hitbox
 func hurt(area: Area2D):
-	if !is_blocking and !defeated:
+	if !is_blocking and !defeated and statusEffect != GameManager.statuses.Shield:
 		var stun_duration = area.hitStun
 		var damage
 		if area.damage:
@@ -352,6 +378,10 @@ func hurt(area: Area2D):
 			$HealthBar.damage(area.damage)
 			change_state(states["hurt"], stun_duration)
 			is_hurt == true
+	elif statusEffect == GameManager.statuses.Shield: # get rid of status effect
+		statusEffect = GameManager.statuses.None
+
+
 
 #when Blocking
 func block(area: Area2D):

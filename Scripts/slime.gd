@@ -1,6 +1,6 @@
 extends Entity
 class_name Slime
-#All potential States
+
 var parent
 
 #moves and their action token costs
@@ -10,6 +10,27 @@ var moveset = {
 	"UniqueAttack": 4,
 	
 }
+
+#For The name replacement of moves
+var movesetNames = {
+	"LightAttack": "Push",
+	"HeavyAttack": "Spear",
+	"UniqueAttack": "Slime Shot"
+	
+}
+
+#list moves that boost stats to have icons next to them
+var statBoosters = {
+}
+
+#for when having a move cooldowns for a number of rounds
+var movesetCooldowns= {
+	"LightAttack": 0,
+	"HeavyAttack": 0,
+	"UniqueAttack": 1
+	
+}
+
 #"Block": 2,
 #Range Detection for raycasts
 var movesetRanges ={
@@ -18,17 +39,24 @@ var movesetRanges ={
 	"UniqueAttack": 75,
 	
 }
-#"Block": 15,
-#for raycasts for each move
 
 
+
+#unlocked move levels
+var movesetLevels = {
+	"LightAttack": 0,
+	"HeavyAttack": 7,
+	"UniqueAttack": 15,
+}
 
 func _ready() -> void:
 	#Health
-	maxHealth= 100
-	if $HealthBar:
+	
+	'''
+	if $HealthBar and maxHealth:
 		$HealthBar.init_health(maxHealth)
 		$HealthBar._set_health(maxHealth)
+	'''	
 	parent = get_parent()
 	var sprite = $Sprite2D
 	var shader_material = sprite.material as ShaderMaterial

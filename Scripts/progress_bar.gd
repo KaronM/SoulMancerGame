@@ -1,10 +1,10 @@
-extends Control
+extends ProgressBar
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
-	#$Options/VBoxContainer/Attack1.pressed.connect() # Replace with function body.
+	if value >= max_value:
+		max_value *= 2 # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
