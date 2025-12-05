@@ -8,9 +8,9 @@ func apply_gravity(body:CharacterBody2D ,delta : float):
 	if not body.is_on_floor():
 		body.velocity += body.get_gravity() * delta
 
-func apply_movement(body:CharacterBody2D, delta : float, direction: int) -> void:
+func apply_movement(body:CharacterBody2D, delta : float, direction: int, speed:int) -> void:
 	if direction:
-		body.velocity.x = direction * SPEED
+		body.velocity.x = direction * speed
 
 func apply_knockback(body:CharacterBody2D, knockback: Vector2):
 	if body.get_parent().is_in_group("Player"):

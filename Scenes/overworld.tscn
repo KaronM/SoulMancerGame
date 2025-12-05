@@ -1,11 +1,13 @@
-[gd_scene load_steps=9 format=4 uid="uid://baihx1fiurlj3"]
+[gd_scene load_steps=15 format=4 uid="uid://baihx1fiurlj3"]
 
 [ext_resource type="Script" uid="uid://ckkpgo0adcp08" path="res://Scripts/overworld.gd" id="1_4qj6l"]
 [ext_resource type="Texture2D" uid="uid://dy11brmg8f6pa" path="res://Assets/TileSets/Tileset Spring.png" id="1_l45s6"]
 [ext_resource type="PackedScene" uid="uid://cioua47kvtesn" path="res://Scenes/overworld_player.tscn" id="2_6s5ae"]
 [ext_resource type="PackedScene" uid="uid://dwvsp7oxqufwc" path="res://Scenes/overworld_enemy.tscn" id="3_i8gr5"]
 [ext_resource type="PackedScene" uid="uid://bv76u1iea0mvs" path="res://Scenes/game_menu.tscn" id="4_s368d"]
+[ext_resource type="Script" uid="uid://mxi1dq0to143" path="res://Scripts/character_data.gd" id="5_hf0oe"]
 [ext_resource type="AudioStream" uid="uid://dmqgmk352li4m" path="res://Assets/Audio/music/ogg/02. Lively City.ogg" id="6_rmeny"]
+[ext_resource type="PackedScene" uid="uid://yl73io7vguid" path="res://Scenes/Arena/battleTransition.tscn" id="8_2ngsa"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6s5ae"]
 texture = ExtResource("1_l45s6")
@@ -87,6 +89,90 @@ texture = ExtResource("1_l45s6")
 [sub_resource type="TileSet" id="TileSet_i8gr5"]
 sources/0 = SubResource("TileSetAtlasSource_6s5ae")
 
+[sub_resource type="Resource" id="Resource_2ngsa"]
+script = ExtResource("5_hf0oe")
+characterId = 20
+characterType = 6
+characterName = ""
+level = 10
+currentExp = 0
+maxHealth = 300
+attack = 15
+speed = 50
+experienceValue = 0
+movesetsLevel = {
+"Block": 5,
+"HeavyAttack": 1,
+"LightAttack": 1
+}
+equippedItems = Array[String]([])
+inventory = Array[String]([])
+base_defense = 5
+metadata/_custom_type_script = "uid://mxi1dq0to143"
+
+[sub_resource type="Resource" id="Resource_v1c68"]
+script = ExtResource("5_hf0oe")
+characterId = 2
+characterType = 5
+characterName = ""
+level = 5
+currentExp = 0
+maxHealth = 100
+attack = 20
+speed = 300
+experienceValue = 10
+movesetsLevel = {
+"Block": 5,
+"HeavyAttack": 1,
+"LightAttack": 1
+}
+equippedItems = Array[String]([])
+inventory = Array[String]([])
+base_defense = 5
+metadata/_custom_type_script = "uid://mxi1dq0to143"
+
+[sub_resource type="Resource" id="Resource_auytq"]
+script = ExtResource("5_hf0oe")
+characterId = 4
+characterType = 1
+characterName = ""
+level = 2
+currentExp = 0
+maxHealth = 75
+attack = 20
+speed = 50
+experienceValue = 0
+movesetsLevel = {
+"Block": 5,
+"HeavyAttack": 1,
+"LightAttack": 1
+}
+equippedItems = Array[String]([])
+inventory = Array[String]([])
+base_defense = 5
+metadata/_custom_type_script = "uid://mxi1dq0to143"
+
+[sub_resource type="Resource" id="Resource_c0h7r"]
+script = ExtResource("5_hf0oe")
+characterId = 6
+characterType = 4
+characterName = ""
+level = 2
+currentExp = 0
+maxHealth = 150
+attack = 20
+speed = 50
+experienceValue = 0
+movesetsLevel = {
+"Block": 5,
+"HeavyAttack": 1,
+"LightAttack": 1
+}
+equippedItems = Array[String]([])
+inventory = Array[String]([])
+base_defense = 5
+metadata/_custom_type_script = "uid://mxi1dq0to143"
+
 [node name="Overworld" type="Node2D"]
 script = ExtResource("1_4qj6l")
 
@@ -97,12 +183,26 @@ tile_set = SubResource("TileSet_i8gr5")
 
 [node name="OverworldPlayer" parent="." instance=ExtResource("2_6s5ae")]
 
-[node name="OverworldEnemy" parent="." instance=ExtResource("3_i8gr5")]
-position = Vector2(86, -61)
-
 [node name="GameMenu" parent="." instance=ExtResource("4_s368d")]
 
 [node name="BGMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_rmeny")
 autoplay = true
 parameters/looping = true
+
+[node name="BattleTransition" parent="." instance=ExtResource("8_2ngsa")]
+visible = false
+
+[node name="Enemies" type="Node" parent="."]
+
+[node name="OverworldEnemy" parent="Enemies" groups=["OverworldEnemy"] instance=ExtResource("3_i8gr5")]
+position = Vector2(86, -61)
+characters = Array[ExtResource("5_hf0oe")]([SubResource("Resource_2ngsa"), SubResource("Resource_v1c68")])
+moneyValue = 5
+experienceValue = 3000
+
+[node name="OverworldEnemy2" parent="Enemies" groups=["OverworldEnemy"] instance=ExtResource("3_i8gr5")]
+position = Vector2(-81, -59)
+characters = Array[ExtResource("5_hf0oe")]([SubResource("Resource_auytq"), SubResource("Resource_2ngsa"), SubResource("Resource_c0h7r")])
+moneyValue = 50
+experienceValue = 75

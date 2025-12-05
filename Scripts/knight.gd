@@ -9,18 +9,40 @@ var moveset = {
 	"HeavyAttack": 2,
 }
 
+var movesetNames = {
+	"LightAttack": "Slice",
+	"HeavyAttack": "Cleave",
+}
+
+#number of rounds waiting for the move
+var movesetCooldowns= {
+	"LightAttack": 0,
+	"HeavyAttack": 0,
+}
+
+var statBoosters = {
+}
+
+
+
+#for raycasts
 var movesetRanges ={
 	"LightAttack": 15,
 	"HeavyAttack": 15,
 }
 
 
-func _ready() -> void:
-	maxHealth= 200
+#unlocked move levels
+var movesetLevels = {
+	"LightAttack": 0,
+	"HeavyAttack": 10,
+
 	
-	if $HealthBar:
-		$HealthBar.init_health(maxHealth)
-		$HealthBar._set_health(maxHealth)
+}
+
+func _ready() -> void:
+
+
 	parent = get_parent()
 	var sprite = $Sprite2D
 	

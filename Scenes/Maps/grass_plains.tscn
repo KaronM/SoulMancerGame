@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://bise05ws7llal"]
+[gd_scene load_steps=25 format=4 uid="uid://bise05ws7llal"]
 
 [ext_resource type="Texture2D" uid="uid://c6tvqk1shby30" path="res://Assets/TileSets/GrassPlains/Tile_01.png" id="1_d7nfv"]
 [ext_resource type="Texture2D" uid="uid://di73monugln8n" path="res://Assets/TileSets/GrassPlains/Backgrounds/1.png" id="2_5eubn"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://covnj1vxfiilv" path="res://Scenes/opponent.tscn" id="6_d7nfv"]
 [ext_resource type="PackedScene" uid="uid://doodsj18msg48" path="res://Scenes/Arena/arena.tscn" id="8_lul3h"]
 [ext_resource type="AudioStream" uid="uid://bpd2jief1oisx" path="res://Assets/Audio/music/ogg/01. Battle Theme I (full).ogg" id="11_dccp2"]
+[ext_resource type="PackedScene" uid="uid://yl73io7vguid" path="res://Scenes/Arena/battleTransition.tscn" id="12_c3dwf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5bhhu"]
 texture = ExtResource("2_5eubn")
@@ -67,6 +68,10 @@ sources/1 = SubResource("TileSetAtlasSource_0kq3n")
 sources/2 = SubResource("TileSetAtlasSource_d5thu")
 sources/3 = SubResource("TileSetAtlasSource_il4jn")
 
+[sub_resource type="Environment" id="Environment_dccp2"]
+background_mode = 3
+tonemap_mode = 2
+
 [node name="GrassPlains" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("5_c3dwf")]
@@ -98,3 +103,8 @@ position = Vector2(57, -12)
 stream = ExtResource("11_dccp2")
 autoplay = true
 parameters/looping = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_dccp2")
+
+[node name="BattleTransition" parent="." instance=ExtResource("12_c3dwf")]

@@ -15,28 +15,13 @@ func _on_physics_process(delta: float) -> void:
 	# Apply movement
 	
 	#if GameManager.roundStart:
-	Movement.apply_movement(entity, delta, direction)
+	Movement.apply_movement(entity, delta, direction,entity.speed)
 	animationPlayer.play("WalkBackward")
 	# Play correct animation
-	'''
-	if parent.is_in_group("Player") and direction == 1:
-		animationPlayer.play("WalkForward")
-	elif parent.is_in_group("Player") and direction == -1:
-		animationPlayer.play("WalkBackward")
 
-		
-	if parent.is_in_group("Opponent") and direction == -1:
-		animationPlayer.play("WalkForward")
-	elif parent.is_in_group("Opponent") and direction == 1:
-		animationPlayer.play("WalkBackward")
-	'''	
 	# If going home, check if we’ve reached spawn
 	if entity.going_home:
-		'''
-		if parent.is_in_group("Player") and entity.global_position.x <= entity.spawnX:
-			_stop_at_spawn()
-		elif parent.is_in_group("Opponent") '''
-		
+			
 		if (entity.global_position.x >= entity.spawnX - 1 and entity.global_position.x <= entity.spawnX + 1) and !backHome:
 				_stop_at_spawn()
 				backHome = true

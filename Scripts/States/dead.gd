@@ -10,16 +10,26 @@ func _on_process(_delta : float) -> void:
 
 #Take Input and do action
 func _on_physics_process(_delta : float) -> void:
+	#disable labels
 	print("Defeated")
 	Movement.apply_gravity(entity,_delta)
-
-#
+	
+	for node in entity.get_children():
+		if node is Label:
+			node.queue_free()
+	
 func _on_next_transitions() -> void:
 	emit_signal("Defeated")
 
 #initial state
 func _on_enter(owner: CharacterBody2D) -> void:
+	
+
 	entity = owner
+	
+	entity.get_node_or_null("StatusEffects").texture = null
+	entity.get_node_or_null("StatusIcon").texture = null
+	
 	entity.going_home = false
 	animationPlayer = entity.get_node("AnimationPlayer")
 	animationPlayer.play("Defeated")

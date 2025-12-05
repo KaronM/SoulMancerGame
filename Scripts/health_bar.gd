@@ -14,8 +14,11 @@ func _set_health(new_health: float) -> void:
 	healthiness = value
 
 	if value <= 0 and !get_parent().defeated:
+
 		get_parent().dead()
 		get_parent().defeated = true
+
+
 
 
 func damage(damage: float )-> void:

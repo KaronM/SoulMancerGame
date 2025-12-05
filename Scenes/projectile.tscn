@@ -27,7 +27,6 @@ emission_shape = 1
 emission_sphere_radius = 1.0
 spread = 89.0
 gravity = Vector2(-200, 300)
-initial_velocity_max = 85.12
 linear_accel_min = -71.72
 linear_accel_max = -71.51
 damping_min = 30.556

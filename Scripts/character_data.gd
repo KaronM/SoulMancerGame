@@ -7,13 +7,17 @@ class_name CharacterData
 @export var level: int = 1
 @export var currentExp: int = 0
 @export var maxHealth: int = 100
+@export var attack: int = 20
+@export var speed : int = 50
+
+#for enemies when getting defeated
+@export var experienceValue: int = 10
 
 # Level-based movesets
 @export var movesetsLevel = {
 	"LightAttack" : 1,
 	"HeavyAttack" : 1,
 	"Block" : 5,
-	
 }
 
 # Equipment/items
@@ -21,7 +25,6 @@ class_name CharacterData
 @export var inventory: Array[String] = []
 
 # Stats that scale with level
-@export var base_attack: int = 10
 @export var base_defense: int = 5
 
 # Get current moveset based on level
@@ -40,8 +43,9 @@ func get_current_moveset() -> Dictionary:
 func level_up() -> void:
 	level += 1
 	maxHealth += 10
-	base_attack += 2
-	base_defense += 1
+	attack += 5
+	speed += 3
+	
 
 # Save/load helper
 func from_dict() -> Dictionary:
@@ -53,6 +57,9 @@ func from_dict() -> Dictionary:
 		"maxHealth": maxHealth,
 		"equipped_items": equippedItems,
 		"inventory": inventory,
+		"attack": attack,
+		"speed" :speed,
+		"experienceValue":experienceValue,
 	}
 
 
@@ -63,8 +70,11 @@ func createCharacterData(data: Dictionary) -> void:
 	characterType = data.get("characterType", GameManager.characters.None)
 	characterName = data.get("characterName", "")
 	level = data.get("level", 1)
-	currentExp = data.get("current_exp", 0)
-	maxHealth = data.get("max_health", 100)
+	currentExp = data.get("currentExp", 0)
+	maxHealth = data.get("maxHealth", 100)
+	attack=  data.get("attack",20)
+	speed= data.get("speed",20)
+	experienceValue = data.get("experienceValue", 10)
 	'''
 	equipped_items = data.get("equipped_items", [""])
 	inventory = data.get("inventory", [""])

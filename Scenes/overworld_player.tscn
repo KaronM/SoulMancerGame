@@ -1,8 +1,72 @@
-[gd_scene load_steps=42 format=3 uid="uid://cioua47kvtesn"]
+[gd_scene load_steps=47 format=3 uid="uid://cioua47kvtesn"]
 
 [ext_resource type="Texture2D" uid="uid://corv77y1jel3" path="res://Assets/Characters/OverworldPlayer/idle.png" id="1_a5ni0"]
 [ext_resource type="Script" uid="uid://5bq5ojf6ad7q" path="res://Scripts/overworld_player.gd" id="1_c8xp0"]
+[ext_resource type="Script" uid="uid://mxi1dq0to143" path="res://Scripts/character_data.gd" id="2_7ny5g"]
 [ext_resource type="Texture2D" uid="uid://bqndwb6f6spc4" path="res://Assets/Characters/OverworldPlayer/walk.png" id="2_c8xp0"]
+
+[sub_resource type="Resource" id="Resource_7gkiw"]
+script = ExtResource("2_7ny5g")
+characterId = -1
+characterType = 1
+characterName = ""
+level = 5
+currentExp = 0
+maxHealth = 250
+attack = 50
+speed = 10
+experienceValue = 20
+movesetsLevel = {
+"Block": 5,
+"HeavyAttack": 1,
+"LightAttack": 1
+}
+equippedItems = Array[String]([])
+inventory = Array[String]([])
+base_defense = 5
+metadata/_custom_type_script = "uid://mxi1dq0to143"
+
+[sub_resource type="Resource" id="Resource_7ny5g"]
+script = ExtResource("2_7ny5g")
+characterId = -2
+characterType = 3
+characterName = ""
+level = 25
+currentExp = 0
+maxHealth = 300
+attack = 50
+speed = 20
+experienceValue = 10
+movesetsLevel = {
+"Block": 5,
+"HeavyAttack": 1,
+"LightAttack": 1
+}
+equippedItems = Array[String]([])
+inventory = Array[String]([])
+base_defense = 5
+metadata/_custom_type_script = "uid://mxi1dq0to143"
+
+[sub_resource type="Resource" id="Resource_j108u"]
+script = ExtResource("2_7ny5g")
+characterId = -3
+characterType = 5
+characterName = ""
+level = 10
+currentExp = 0
+maxHealth = 125
+attack = 20
+speed = 100
+experienceValue = 10
+movesetsLevel = {
+"Block": 5,
+"HeavyAttack": 1,
+"LightAttack": 1
+}
+equippedItems = Array[String]([])
+inventory = Array[String]([])
+base_defense = 5
+metadata/_custom_type_script = "uid://mxi1dq0to143"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7ny5g"]
 atlas = ExtResource("1_a5ni0")
@@ -293,8 +357,11 @@ animations = [{
 radius = 9.0
 height = 20.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_c8xp0"]
+
 [node name="OverworldPlayer" type="CharacterBody2D"]
 script = ExtResource("1_c8xp0")
+startingCharacters = Array[ExtResource("2_7ny5g")]([SubResource("Resource_7gkiw"), SubResource("Resource_7ny5g"), SubResource("Resource_j108u")])
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_o2tky")
@@ -306,3 +373,9 @@ shape = SubResource("CapsuleShape2D_3dwyp")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2.5, 2.5)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_c8xp0")
+debug_color = Color(0.810511, 0.408873, 0.123134, 0.42)

@@ -37,6 +37,7 @@ Hitbox=""
 Hurtbox=""
 Player_Projectile=""
 Opponent_Projectile=""
+OverworldEnemy=""
 
 [importer_defaults]
 

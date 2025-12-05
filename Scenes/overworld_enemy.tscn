@@ -1,5 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://dwvsp7oxqufwc"]
+[gd_scene load_steps=11 format=3 uid="uid://dwvsp7oxqufwc"]
 
+[ext_resource type="Script" uid="uid://bc8qx8sbfuwql" path="res://Scripts/overworld_enemy.gd" id="1_6qxk7"]
 [ext_resource type="Texture2D" uid="uid://corv77y1jel3" path="res://Assets/Characters/OverworldPlayer/idle.png" id="1_21wu8"]
 [ext_resource type="Script" uid="uid://cm4h8pn34yrmx" path="res://Scripts/area_2d.gd" id="2_lm5hq"]
 
@@ -47,6 +48,7 @@ animations = [{
 size = Vector2(27.5, 23.5)
 
 [node name="OverworldEnemy" type="CharacterBody2D"]
+script = ExtResource("1_6qxk7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_21wu8")

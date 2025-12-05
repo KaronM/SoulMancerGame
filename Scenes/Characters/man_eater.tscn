@@ -1287,6 +1287,12 @@ texture = ExtResource("10_r6v7s")
 region_enabled = true
 region_rect = Rect2(560, 528, 208, 208)
 
+[node name="Idle" type="Sprite2D" parent="AttackPreviewContainer"]
+visible = false
+texture = ExtResource("10_r6v7s")
+region_enabled = true
+region_rect = Rect2(48, 48, 160, 160)
+
 [node name="UniqueAttack" type="Sprite2D" parent="AttackPreviewContainer"]
 visible = false
 texture = ExtResource("9_x1mjs")
@@ -1341,3 +1347,20 @@ knockback = Vector2(5, 0)
 hitStun = 0.1
 blockStun = 0.3
 damage = 20.0
+
+[node name="StatusEffects" type="Sprite2D" parent="."]
+z_index = 7
+z_as_relative = false
+position = Vector2(0, -15)
+
+[node name="StatusIcon" type="Sprite2D" parent="."]
+z_index = 7
+z_as_relative = false
+position = Vector2(0, -45)
+scale = Vector2(0.3, 0.3)
+
+[node name="StatusEffects2" type="Sprite2D" parent="."]
+z_index = 7
+z_as_relative = false
+position = Vector2(0, -15)
+scale = Vector2(0.5, 0.5)

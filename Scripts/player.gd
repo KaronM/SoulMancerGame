@@ -88,11 +88,14 @@ func _ready() -> void:
 		print(char)
 		
 		var currentCharacterPath = GameManager.characterPaths.get(char.characterType)
-		print(char.characterType)
+
 		var scene : PackedScene = load(currentCharacterPath)
 
 		if scene:
 			var instance = scene.instantiate()
+			instance.setHealth(char.maxHealth,instance.get_node("HealthBar"))
+			instance.speed = 100 + (10 * (char.speed/100))
+			instance.attack = char.attack
 			instance.name = "Character_%d" % i
 			add_child(instance)
 			instance.set_collision_layer_value(2, true) 
@@ -142,7 +145,7 @@ func addMoveOptions():
 			# Create the move button
 			var btn = Button.new()
 			
-			btn.text = str(move_name)
+			btn.text = str(selectedCharacter.movesetNames[str(move_name)])
 			btn.add_theme_font_override("font", font)
 			btn.add_theme_font_size_override("font_size", 20)
 			btn.pressed.connect(func():
@@ -156,26 +159,46 @@ func addMoveOptions():
 			row.add_child(btn)
 			
 
-			#add the star next to the button
+			#add the label andstar next to the button
 			var star
-			for i in selectedCharacter.moveset[move_name]:
-				star = action.instantiate()
-				if star is AnimatedSprite2D:
-					star.play('On')
-					var tex: Texture2D = star.sprite_frames.get_frame_texture(
-						star.animation,
-						star.frame
-					)
-					if tex:
-						var star_textrect = TextureRect.new()
-						star_textrect.texture = tex
-						star_textrect.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
-						star_textrect.custom_minimum_size = Vector2(48, 48)
-						row.add_child(star_textrect)
-				else:
-					print("⚠️ No texture found for move:", star)
+			var starbox = HBoxContainer.new()
+			var label = Label.new()
+			label.text = str(selectedCharacter.moveset[str(move_name)])
+			label.add_theme_color_override("font_color", Color.YELLOW)
+			label.add_theme_font_override("font", font)
+			label.add_theme_font_size_override("font_size", 45)
 
-			
+			star = action.instantiate()
+			if star is AnimatedSprite2D:
+				
+				star.play('On')
+				var tex: Texture2D = star.sprite_frames.get_frame_texture(
+					star.animation,
+					star.frame
+				)
+				if tex:
+					var star_textrect = TextureRect.new()
+					star_textrect.texture = tex
+					star_textrect.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+					star_textrect.custom_minimum_size = Vector2(48, 48)
+					row.add_child(starbox)
+					starbox.add_child(label)
+					starbox.add_child(star_textrect)
+					
+					#adding cooldown symbol next to move
+					if selectedCharacter.statBoosters.has(str(move_name)):
+						var cooldowntex = load("res://Assets/Gui/Upgrade.png")
+						var round_textrect = TextureRect.new()
+						round_textrect.texture = cooldowntex
+						round_textrect.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+						round_textrect.custom_minimum_size = Vector2(32, 32)
+						starbox.add_child(round_textrect)
+						
+	
+			else:
+				print("⚠️ No texture found for move:", star)
+
+		
 			
 			
 #change who is selection icon hovering over
@@ -205,83 +228,97 @@ func startRound():
 
 #when a move button is pressed
 func on_move_pressed(move_name: String) -> void:
-	if GameManager.matchStart:
-		print("Selected move:", move_name)
+	if GameManager.matchStart: #check if match started and move isnt currently on cooldown
+		#print("Selected move:", move_name)
+		
+		print(selectedCharacter.movesetRoundUsed, "rounds")
+	
 		var icons = selectedCharacter.get_node("AttackPreviewContainer")
 		var remainingTokens = actionTokens - usedTokens
 		
 			#move part of move name
 		var parts = move_name.split(",")
 		var move = parts[1]
+		
+		#GameManager.rounds == selectedCharacter.movesetRoundUsed[move]
+		
+		
 		if selectedCharacter.moveset[move] <= remainingTokens and !GameManager.roundStart:
-			
-			var row = HBoxContainer.new()
-			row.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
-			
-			
-			#find selected character as it relates to character order
-			var currentCharIndex
-			if characterOrder.has(selectedCharacter.name):
-				currentCharIndex = characterOrder.find(selectedCharacter.name) + 1
-			else:
-				currentCharIndex = characterOrder.size() + 1
-			
-			#add labels to move record
-			
-			var label = Label.new()
-			label.text = str(currentCharIndex) + "   " + str(move)
-			label.add_theme_font_override("font", font)
-			label.add_theme_font_size_override("font_size", 18)
-			label.modulate = Color(1, 1, 1, 1)
-			label.size_flags_horizontal = 0
-			row.add_child(label)
-			
-			# get move icon 
-			if icons.has_node(move):
-				var icon_sprite = icons.get_node(move)
-				if icon_sprite is Sprite2D:
-					var tex: Texture2D = icon_sprite.texture
-					if tex:
-						var icon_texrect = TextureRect.new()
-						var region_enabled = icon_sprite.region_enabled
-						if region_enabled:
-							var region = icon_sprite.region_rect
-							# Create AtlasTexture from the region
-							var atlas_tex := AtlasTexture.new()
-							atlas_tex.atlas = tex
-							atlas_tex.region = region
-							icon_texrect.texture = atlas_tex
-						else:
-							icon_texrect.texture = tex
+		
+			if (!selectedCharacter.movesetRoundUsed.has(move) or (GameManager.rounds - selectedCharacter.movesetRoundUsed[move]) >= selectedCharacter.movesetCooldowns[move]): #check if moveisnt currently on cooldown
 
-						icon_texrect.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
-						icon_texrect.custom_minimum_size = Vector2(48,48)
-						icon_texrect.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
-						row.add_child(icon_texrect)
-					else:
-						print("⚠️ No texture found for move:", move)
-				else:
-					print("⚠️ Node is not an AnimatedSprite2D:", move)
-			else:
-				print("⚠️ No icon found for move:", move)
-			
-			#add order labels to move record
-			moveRecord.add_child(row)
-			var scroll = moveRecord.get_parent()  # The ScrollContainer
-			await get_tree().process_frame      # Wait a frame so layout updates
-			scroll.scroll_vertical = scroll.get_v_scroll_bar().max_value
-			
-		#Add cost to each move
-			usedTokens += selectedCharacter.moveset[move]
-		#Add move to movequeue
-			moveQueue.append(move_name)
-			
-			#add labels above characters
-			if characterOrder.size() <= characterInstances.size():
-				if !characterOrder.has(str(selectedCharacter.name)):
-					characterOrder.append(str(selectedCharacter.name))	
-					drawOrderLabels(selectedCharacter)
+				if selectedCharacter.movesetCooldowns[move] > 0: #add to cooldown
+					print("heckler")
+					selectedCharacter.movesetRoundUsed[move] = GameManager.rounds
+						
+					print(GameManager.rounds - selectedCharacter.movesetRoundUsed[move], "rounds")
 				
+				var row = HBoxContainer.new()
+				row.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
+				
+				
+				#find selected character as it relates to character order
+				var currentCharIndex
+				if characterOrder.has(selectedCharacter.name):
+					currentCharIndex = characterOrder.find(selectedCharacter.name) + 1
+				else:
+					currentCharIndex = characterOrder.size() + 1
+				
+				#add labels to move record
+				var label = Label.new()
+				label.text = str(currentCharIndex) + "   " + str(move)
+				label.add_theme_font_override("font", font)
+				label.add_theme_font_size_override("font_size", 18)
+				label.modulate = Color(1, 1, 1, 1)
+				label.size_flags_horizontal = 0
+				row.add_child(label)
+				
+				# get move icon 
+				if icons.has_node(move):
+					var icon_sprite = icons.get_node(move)
+					if icon_sprite is Sprite2D:
+						var tex: Texture2D = icon_sprite.texture
+						if tex:
+							var icon_texrect = TextureRect.new()
+							var region_enabled = icon_sprite.region_enabled
+							if region_enabled:
+								var region = icon_sprite.region_rect
+								# Create AtlasTexture from the region
+								var atlas_tex := AtlasTexture.new()
+								atlas_tex.atlas = tex
+								atlas_tex.region = region
+								icon_texrect.texture = atlas_tex
+							else:
+								icon_texrect.texture = tex
+
+							icon_texrect.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+							icon_texrect.custom_minimum_size = Vector2(48,48)
+							icon_texrect.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+							row.add_child(icon_texrect)
+						else:
+							print("⚠️ No texture found for move:", move)
+					else:
+						print("⚠️ Node is not an AnimatedSprite2D:", move)
+				else:
+					print("⚠️ No icon found for move:", move)
+				
+				#add order labels to move record
+				moveRecord.add_child(row)
+				var scroll = moveRecord.get_parent()  # The ScrollContainer
+				await get_tree().process_frame      # Wait a frame so layout updates
+				scroll.scroll_vertical = scroll.get_v_scroll_bar().max_value
+				
+			#Add cost to each move
+				usedTokens += selectedCharacter.moveset[move]
+			#Add move to movequeue
+				moveQueue.append(move_name)
+				
+				#add labels above characters
+				if characterOrder.size() <= characterInstances.size():
+					if !characterOrder.has(str(selectedCharacter.name)):
+						characterOrder.append(str(selectedCharacter.name))	
+						drawOrderLabels(selectedCharacter)
+					
 			
 #refresh star icons
 func refreshActionTokens():
@@ -310,8 +347,9 @@ func resetMoves():
 		#clear character order
 		characterOrder.clear()
 		
-		#remove order icon
+		#remove order icon and clear cooldown rounds
 		for child in characterInstances:
+			child.movesetRoundUsed.clear()
 			var health_bar = child.get_node("HealthBar")
 			for node in health_bar.get_children():
 				if node is Label:
@@ -323,7 +361,22 @@ func remove_move(move_name: String) -> void:
 	if moveQueue.has(move_name):
 		moveQueue.erase(move_name)
 		
-		
+#apply status effects to all 
+func applyStatus(status: GameManager.statuses):
+	for char in characterInstances:
+		if char.defeated != true:
+			var icon = load(GameManager.statusIcons[status])
+			var effect = load(GameManager.statusEffects[status])
+			char.statusEffect = status
+			char.get_node("StatusIcon").texture = icon
+			char.get_node("StatusEffects").texture = effect
+
+func removeStatuses():
+	for char in characterInstances:
+		char.get_node("StatusIcon").texture = null
+		char.get_node("StatusEffects").texture = null
+		char.get_node("StatusEffects2").texture = null
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	print("order of", characterOrder)
@@ -333,8 +386,12 @@ func _process(delta: float) -> void:
 	
 	#prevent any dead characters to be selected
 	characterInstances = characterInstances.filter(func(c): return not c.defeated)
-
 	
+	#check is sentinel is actively shielding
+	for char in characterInstances:
+		if char is Sentinel and char.applyShielding == true:
+			applyStatus(GameManager.statuses.Shield)
+			
 	#Set selection of current character, backwards because of new child instantiated left of old
 	if Input.is_action_just_pressed("Left") and selectIndex < characterInstances.size()-1:
 		selectIndex += 1 
@@ -356,7 +413,7 @@ func _process(delta: float) -> void:
 	
 	#make it so that they are not home
 	#Refresh When Round End
-	print("round is in", roundInProgress)
+	print("round in progres: ", roundInProgress)
 	if !GameManager.roundStart:
 		for i in usedTokens:
 			if usedTokens <= actionTokens:

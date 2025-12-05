@@ -13,7 +13,8 @@ func _on_physics_process(delta: float) -> void:
 	# Apply movement
 	
 	#if GameManager.roundStart:
-	Movement.apply_movement(entity, delta, direction)
+
+	Movement.apply_movement(entity, delta, direction, entity.speed)
 	animationPlayer.play("WalkForward")
 		
 	

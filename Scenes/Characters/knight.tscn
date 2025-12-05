@@ -816,6 +816,7 @@ tracks/13/keys = {
 [sub_resource type="Animation" id="Animation_cgoeu"]
 resource_name = "LightAttack"
 length = 0.6
+loop_mode = 1
 step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -1745,6 +1746,12 @@ texture = ExtResource("5_rutod")
 region_enabled = true
 region_rect = Rect2(16, 288, 144, 144)
 
+[node name="Idle" type="Sprite2D" parent="AttackPreviewContainer"]
+visible = false
+texture = ExtResource("5_rutod")
+region_enabled = true
+region_rect = Rect2(-16, -16, 160, 160)
+
 [node name="HeavyAttack" type="Sprite2D" parent="AttackPreviewContainer"]
 visible = false
 texture = ExtResource("7_a7f2n")
@@ -1761,8 +1768,8 @@ theme_override_styles/background = SubResource("StyleBoxFlat_7tll2")
 min_value = 0.0
 
 [node name="HurtBox" parent="." instance=ExtResource("10_rutod")]
-position = Vector2(0, -12)
-scale = Vector2(0.522706, -0.540182)
+position = Vector2(-1, -14)
+scale = Vector2(0.701935, -0.63115)
 
 [node name="Stun" type="Timer" parent="."]
 
@@ -1793,3 +1800,20 @@ knockback = Vector2(5, 0)
 hitStun = 0.1
 blockStun = 0.3
 damage = 20.0
+
+[node name="StatusEffects" type="Sprite2D" parent="."]
+z_index = 7
+z_as_relative = false
+position = Vector2(0, -15)
+
+[node name="StatusIcon" type="Sprite2D" parent="."]
+z_index = 7
+z_as_relative = false
+position = Vector2(0, -45)
+scale = Vector2(0.3, 0.3)
+
+[node name="StatusEffects2" type="Sprite2D" parent="."]
+z_index = 7
+z_as_relative = false
+position = Vector2(0, -15)
+scale = Vector2(0.5, 0.5)

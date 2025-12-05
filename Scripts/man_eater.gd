@@ -9,18 +9,44 @@ var moveset = {
 	"LightAttack": 2,
 }
 
+var movesetNames = {
+	"LightAttack": "Vine Whip",
+	"UniqueAttack": "Poison Shot"
+	
+}
+
+var movesetCooldowns= {
+	"LightAttack": 0,
+	"UniqueAttack": 1
+	
+}
+
+var statBoosters = {
+}
+
+
+
+
 var movesetRanges ={
 	"UniqueAttack": 150,
 	"LightAttack": 45,
 }
 
+#unlocked move levels
+var movesetLevels = {
+	"LightAttack": 0,
+	"UniqueAttack": 0,
+	
+}
 
 func _ready() -> void:
-	maxHealth= 300
+
 	
-	if $HealthBar:
+	'''
+	if $HealthBar and maxHealth:
 		$HealthBar.init_health(maxHealth)
 		$HealthBar._set_health(maxHealth)
+	'''	
 	parent = get_parent()
 	var sprite = $Sprite2D
 	

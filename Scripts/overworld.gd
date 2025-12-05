@@ -11,6 +11,9 @@ func _ready() -> void:
 	menu.visible = false
 	partyMenu = false
 	menuFirstOption.connect("pressed", Callable(self, "togglePartyMenu"))
+	$BattleTransition.show()
+	$BattleTransition.open()
+	
  # Replace with function body.
 
 func toggleMenu():
