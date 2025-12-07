@@ -1,9 +1,9 @@
 [gd_scene load_steps=7 format=3 uid="uid://cgromsxdm4tva"]
 
-[ext_resource type="Script" uid="uid://gvyp102mp2df" path="res://Scripts/obstacle.gd" id="1_y47hn"]
-[ext_resource type="Texture2D" uid="uid://dupn4it2uf0vv" path="res://Assets/Characters/Golem/Moveset/RockPillar.png" id="2_24iom"]
-[ext_resource type="PackedScene" uid="uid://dp0dccv7a7n0p" path="res://Scenes/health_bar.tscn" id="3_8nxsb"]
-[ext_resource type="PackedScene" uid="uid://cmncdcd5njc5n" path="res://Scenes/Boxes/hurt_box.tscn" id="4_6id04"]
+[ext_resource type="Script" uid="uid://gvyp102mp2df" path="res://Scripts/obstacle.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://dupn4it2uf0vv" path="res://Assets/Characters/Golem/Moveset/RockPillar.png" id="2"]
+[ext_resource type="PackedScene" uid="uid://cmncdcd5njc5n" path="res://Scenes/Boxes/hurt_box.tscn" id="3"]
+[ext_resource type="PackedScene" uid="uid://dp0dccv7a7n0p" path="res://Scenes/health_bar.tscn" id="4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jx5yj"]
 
@@ -13,14 +13,14 @@ bg_color = Color(0, 0, 0, 1)
 [node name="Obstacle" type="CharacterBody2D"]
 collision_layer = 6
 collision_mask = 0
-script = ExtResource("1_y47hn")
+script = ExtResource("1")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -11)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_24iom")
+texture = ExtResource("2")
 
-[node name="HurtBox" parent="." instance=ExtResource("4_6id04")]
+[node name="HurtBox" parent="." instance=ExtResource("3")]
 position = Vector2(2, -14)
 scale = Vector2(0.555631, 0.619984)
 collision_layer = 24
@@ -32,7 +32,7 @@ position = Vector2(2, -13)
 scale = Vector2(0.716407, 1.3246)
 shape = SubResource("RectangleShape2D_jx5yj")
 
-[node name="HealthBar" parent="." instance=ExtResource("3_8nxsb")]
+[node name="HealthBar" parent="." instance=ExtResource("4")]
 offset_top = -29.0
 offset_right = 94.0
 offset_bottom = -4.0

@@ -1,9 +1,9 @@
 [gd_scene load_steps=2 format=3 uid="uid://yl73io7vguid"]
 
-[ext_resource type="Script" uid="uid://cavucjo3kw4tk" path="res://battleTransition.gd" id="1_akxfr"]
+[ext_resource type="Script" uid="uid://cavucjo3kw4tk" path="res://battleTransition.gd" id="1"]
 
 [node name="BattleTransition" type="CanvasLayer"]
-script = ExtResource("1_akxfr")
+script = ExtResource("1")
 
 [node name="ScreenHolder1" type="Control" parent="."]
 self_modulate = Color(1, 1, 1, 0)

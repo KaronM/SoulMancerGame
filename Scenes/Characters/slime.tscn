@@ -1,26 +1,26 @@
 [gd_scene load_steps=40 format=3 uid="uid://cmb3du6pasa6l"]
 
-[ext_resource type="Script" uid="uid://c4ehh3neop12t" path="res://Scripts/slime.gd" id="1_gxqrl"]
-[ext_resource type="Texture2D" uid="uid://bhn0ui04g3b62" path="res://Assets/Characters/Slime/Moveset/AirLightAttack.png" id="3_4m2oo"]
-[ext_resource type="Texture2D" uid="uid://dwdnvmibq0bdw" path="res://Assets/Characters/Slime/Moveset/Block.png" id="4_2uck1"]
-[ext_resource type="Texture2D" uid="uid://cs270ne67gsk5" path="res://Assets/Characters/Slime/Moveset/Defeated.png" id="5_5vitb"]
-[ext_resource type="Texture2D" uid="uid://l75yfr3oe1k2" path="res://Assets/Characters/Slime/Moveset/HeavyAttack.png" id="6_tqevj"]
-[ext_resource type="Texture2D" uid="uid://bqu6bbq27oe5" path="res://Assets/Characters/Slime/Moveset/Idle.png" id="7_mo5kl"]
-[ext_resource type="Texture2D" uid="uid://w2dl7avvfsqw" path="res://Assets/Characters/Slime/Moveset/Jump.png" id="8_jvllc"]
-[ext_resource type="Texture2D" uid="uid://imsm3xg4a06f" path="res://Assets/Characters/Slime/Moveset/LightAttack.png" id="9_qggyi"]
-[ext_resource type="PackedScene" uid="uid://bsi07igkuc5kh" path="res://Scenes/projectile.tscn" id="10_jvllc"]
-[ext_resource type="Texture2D" uid="uid://cgtjos7cweq0n" path="res://Assets/Characters/Slime/Moveset/Special.png" id="10_mo5kl"]
-[ext_resource type="Texture2D" uid="uid://d2m2twob874w5" path="res://Assets/Characters/Slime/Moveset/BackwardsWalk.png" id="11_o73go"]
-[ext_resource type="Texture2D" uid="uid://dayepufj6df2r" path="res://Assets/Characters/Slime/Moveset/ForwardWalk.png" id="12_g50k1"]
-[ext_resource type="Texture2D" uid="uid://codwixccfaqjc" path="res://Assets/Characters/Slime/Moveset/Hurt.png" id="13_5vitb"]
-[ext_resource type="PackedScene" uid="uid://bjfdbcdeno77s" path="res://Scenes/States/state_machine.tscn" id="13_t7a36"]
-[ext_resource type="PackedScene" uid="uid://c3n62rihl400o" path="res://Scenes/entity_detection.tscn" id="14_fmowg"]
-[ext_resource type="Shader" uid="uid://vjkylaod1lbt" path="res://Scenes/Characters/slime.gdshader" id="14_tqevj"]
-[ext_resource type="PackedScene" uid="uid://dp0dccv7a7n0p" path="res://Scenes/health_bar.tscn" id="15_q2u4q"]
-[ext_resource type="PackedScene" uid="uid://d08w5qphkuy6d" path="res://Scenes/Boxes/hit_box.tscn" id="16_4m2oo"]
-[ext_resource type="PackedScene" uid="uid://cmncdcd5njc5n" path="res://Scenes/Boxes/hurt_box.tscn" id="17_2uck1"]
-[ext_resource type="PackedScene" uid="uid://cqu5igqlycsf2" path="res://Scenes/projectile_spawn.tscn" id="20_jvllc"]
-[ext_resource type="Texture2D" uid="uid://ddkdqvsni3n7a" path="res://Assets/Characters/Slime/Moveset/Projectile.png" id="22_qggyi"]
+[ext_resource type="Script" uid="uid://c4ehh3neop12t" path="res://Scripts/slime.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://bhn0ui04g3b62" path="res://Assets/Characters/Slime/Moveset/AirLightAttack.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://dwdnvmibq0bdw" path="res://Assets/Characters/Slime/Moveset/Block.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://cs270ne67gsk5" path="res://Assets/Characters/Slime/Moveset/Defeated.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://l75yfr3oe1k2" path="res://Assets/Characters/Slime/Moveset/HeavyAttack.png" id="5"]
+[ext_resource type="Texture2D" uid="uid://codwixccfaqjc" path="res://Assets/Characters/Slime/Moveset/Hurt.png" id="6"]
+[ext_resource type="Texture2D" uid="uid://bqu6bbq27oe5" path="res://Assets/Characters/Slime/Moveset/Idle.png" id="7"]
+[ext_resource type="Texture2D" uid="uid://w2dl7avvfsqw" path="res://Assets/Characters/Slime/Moveset/Jump.png" id="8"]
+[ext_resource type="Texture2D" uid="uid://imsm3xg4a06f" path="res://Assets/Characters/Slime/Moveset/LightAttack.png" id="9"]
+[ext_resource type="PackedScene" uid="uid://bsi07igkuc5kh" path="res://Scenes/projectile.tscn" id="10"]
+[ext_resource type="Texture2D" uid="uid://cgtjos7cweq0n" path="res://Assets/Characters/Slime/Moveset/Special.png" id="11"]
+[ext_resource type="Texture2D" uid="uid://d2m2twob874w5" path="res://Assets/Characters/Slime/Moveset/BackwardsWalk.png" id="12"]
+[ext_resource type="Texture2D" uid="uid://dayepufj6df2r" path="res://Assets/Characters/Slime/Moveset/ForwardWalk.png" id="13"]
+[ext_resource type="Shader" uid="uid://vjkylaod1lbt" path="res://Scenes/Characters/slime.gdshader" id="14"]
+[ext_resource type="PackedScene" uid="uid://bjfdbcdeno77s" path="res://Scenes/States/state_machine.tscn" id="15"]
+[ext_resource type="PackedScene" uid="uid://c3n62rihl400o" path="res://Scenes/entity_detection.tscn" id="16"]
+[ext_resource type="PackedScene" uid="uid://dp0dccv7a7n0p" path="res://Scenes/health_bar.tscn" id="17"]
+[ext_resource type="PackedScene" uid="uid://cmncdcd5njc5n" path="res://Scenes/Boxes/hurt_box.tscn" id="18"]
+[ext_resource type="PackedScene" uid="uid://d08w5qphkuy6d" path="res://Scenes/Boxes/hit_box.tscn" id="19"]
+[ext_resource type="PackedScene" uid="uid://cqu5igqlycsf2" path="res://Scenes/projectile_spawn.tscn" id="20"]
+[ext_resource type="Texture2D" uid="uid://ddkdqvsni3n7a" path="res://Assets/Characters/Slime/Moveset/Projectile.png" id="21"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5vitb"]
 
@@ -60,7 +60,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("3_4m2oo")]
+"values": [ExtResource("2")]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -113,7 +113,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("4_2uck1")]
+"values": [ExtResource("3")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -274,7 +274,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("5_5vitb")]
+"values": [ExtResource("4")]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -422,7 +422,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("6_tqevj")]
+"values": [ExtResource("5")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -679,7 +679,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("13_5vitb")]
+"values": [ExtResource("6")]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -937,7 +937,7 @@ tracks/12/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("7_mo5kl")]
+"values": [ExtResource("7")]
 }
 tracks/13/type = "value"
 tracks/13/imported = false
@@ -1002,7 +1002,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("8_jvllc")]
+"values": [ExtResource("8")]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -1067,7 +1067,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("9_qggyi")]
+"values": [ExtResource("9")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -1298,7 +1298,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("7_mo5kl")]
+"values": [ExtResource("7")]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -1598,7 +1598,7 @@ tracks/26/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("10_jvllc")]
+"values": [ExtResource("10")]
 }
 tracks/27/type = "value"
 tracks/27/imported = false
@@ -1687,7 +1687,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("10_mo5kl")]
+"values": [ExtResource("11")]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -1785,7 +1785,7 @@ tracks/9/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("10_jvllc")]
+"values": [ExtResource("10")]
 }
 tracks/10/type = "value"
 tracks/10/imported = false
@@ -1923,7 +1923,7 @@ tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("11_o73go")]
+"values": [ExtResource("12")]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
@@ -2025,7 +2025,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("12_g50k1")]
+"values": [ExtResource("13")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -2118,7 +2118,7 @@ _data = {
 }
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mo5kl"]
-shader = ExtResource("14_tqevj")
+shader = ExtResource("14")
 shader_parameter/line_color = Color(1, 0.576471, 0.0431373, 1)
 shader_parameter/line_thickness = 1.0
 
@@ -2128,7 +2128,7 @@ bg_color = Color(0, 0, 0, 1)
 [node name="Slime" type="CharacterBody2D"]
 material = SubResource("ShaderMaterial_5vitb")
 collision_mask = 0
-script = ExtResource("1_gxqrl")
+script = ExtResource("1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.75, -16.5)
@@ -2144,15 +2144,15 @@ autoplay = "Idle"
 z_index = 1
 material = SubResource("ShaderMaterial_mo5kl")
 scale = Vector2(0.464286, 0.539494)
-texture = ExtResource("7_mo5kl")
+texture = ExtResource("7")
 offset = Vector2(0.99999, -3.61051)
 hframes = 5
 region_enabled = true
 region_rect = Rect2(0, 0, 120, 24)
 
-[node name="StateMachine" parent="." instance=ExtResource("13_t7a36")]
+[node name="StateMachine" parent="." instance=ExtResource("15")]
 
-[node name="EntityDetection" parent="." instance=ExtResource("14_fmowg")]
+[node name="EntityDetection" parent="." instance=ExtResource("16")]
 position = Vector2(0, -5)
 target_position = Vector2(38, 0)
 collision_mask = 0
@@ -2164,7 +2164,15 @@ visible = false
 visible = false
 position = Vector2(0, -1)
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("9_qggyi")
+texture = ExtResource("9")
+region_enabled = true
+region_rect = Rect2(0, 0, 208, 192)
+
+[node name="Idle" type="Sprite2D" parent="AttackPreviewContainer"]
+visible = false
+position = Vector2(0, -1)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("9")
 region_enabled = true
 region_rect = Rect2(0, 0, 208, 192)
 
@@ -2180,7 +2188,7 @@ region_rect = Rect2(0, 0, 208, 192)
 visible = false
 position = Vector2(0, -1)
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("10_mo5kl")
+texture = ExtResource("11")
 region_enabled = true
 region_rect = Rect2(16, 96, 48, 48)
 
@@ -2188,11 +2196,11 @@ region_rect = Rect2(16, 96, 48, 48)
 visible = false
 position = Vector2(0, -1)
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("6_tqevj")
+texture = ExtResource("5")
 region_enabled = true
 region_rect = Rect2(288, 544, 192, 208)
 
-[node name="HealthBar" parent="." instance=ExtResource("15_q2u4q")]
+[node name="HealthBar" parent="." instance=ExtResource("17")]
 offset_left = -6.0
 offset_top = -16.0
 offset_right = 93.0
@@ -2201,7 +2209,7 @@ scale = Vector2(0.123545, 0.076192)
 theme_override_styles/background = SubResource("StyleBoxFlat_qggyi")
 min_value = 0.0
 
-[node name="HurtBox" parent="." instance=ExtResource("17_2uck1")]
+[node name="HurtBox" parent="." instance=ExtResource("18")]
 position = Vector2(-1, -6)
 scale = Vector2(0.579794, 0.251402)
 isBlocking = true
@@ -2214,7 +2222,7 @@ isBlocking = true
 process_mode = 3
 z_index = 1
 
-[node name="hit_box2" parent="HitBoxContainer" instance=ExtResource("16_4m2oo")]
+[node name="hit_box2" parent="HitBoxContainer" instance=ExtResource("19")]
 z_index = 1
 position = Vector2(15, -9)
 scale = Vector2(0.633254, 0.38369)
@@ -2225,7 +2233,7 @@ hitStun = 0.5
 blockStun = 0.3
 damage = 25.0
 
-[node name="hit_box" parent="HitBoxContainer" instance=ExtResource("16_4m2oo")]
+[node name="hit_box" parent="HitBoxContainer" instance=ExtResource("19")]
 z_index = 1
 position = Vector2(11, -13)
 scale = Vector2(0.633254, 0.38369)
@@ -2235,10 +2243,10 @@ hitStun = 0.5
 blockStun = 0.3
 damage = 10.0
 
-[node name="ProjectileSpawn" parent="." instance=ExtResource("20_jvllc")]
+[node name="ProjectileSpawn" parent="." instance=ExtResource("20")]
 position = Vector2(11, -10)
-projectile_scene = ExtResource("10_jvllc")
-projectile_Texture = ExtResource("22_qggyi")
+projectile_scene = ExtResource("10")
+projectile_Texture = ExtResource("21")
 launch_velocity = 100.0
 launch_angle = -10.0
 damage = 100

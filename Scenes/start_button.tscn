@@ -1,13 +1,13 @@
 [gd_scene load_steps=4 format=3 uid="uid://dhl5xwti41ihe"]
 
-[ext_resource type="Texture2D" uid="uid://l7tieb771l8p" path="res://Assets/Gui/Spritesheet_UI_Flat_Animated.png" id="1_tqs16"]
+[ext_resource type="Texture2D" uid="uid://l7tieb771l8p" path="res://Assets/Gui/Spritesheet_UI_Flat_Animated.png" id="1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xhk71"]
-atlas = ExtResource("1_tqs16")
+atlas = ExtResource("1")
 region = Rect2(96, 96, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jmjxx"]
-atlas = ExtResource("1_tqs16")
+atlas = ExtResource("1")
 region = Rect2(0, 96, 32, 32)
 
 [node name="StartButton" type="CanvasLayer"]

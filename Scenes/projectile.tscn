@@ -1,17 +1,17 @@
 [gd_scene load_steps=4 format=3 uid="uid://bsi07igkuc5kh"]
 
-[ext_resource type="Script" uid="uid://befqtlvw06ul4" path="res://Scripts/projectile.gd" id="1_f8cdk"]
-[ext_resource type="Texture2D" uid="uid://bw58oy3kkb65f" path="res://Assets/Characters/ManEater/Moveset/ManEaterProjectile.png" id="1_tl4hk"]
-[ext_resource type="PackedScene" uid="uid://d08w5qphkuy6d" path="res://Scenes/Boxes/hit_box.tscn" id="3_tl4hk"]
+[ext_resource type="Texture2D" uid="uid://bw58oy3kkb65f" path="res://Assets/Characters/ManEater/Moveset/ManEaterProjectile.png" id="1"]
+[ext_resource type="Script" uid="uid://befqtlvw06ul4" path="res://Scripts/projectile.gd" id="2"]
+[ext_resource type="PackedScene" uid="uid://d08w5qphkuy6d" path="res://Scenes/Boxes/hit_box.tscn" id="3"]
 
 [node name="Projectile" type="Sprite2D"]
 z_index = 2
-texture = ExtResource("1_tl4hk")
-script = ExtResource("1_f8cdk")
+texture = ExtResource("1")
+script = ExtResource("2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
-[node name="hit_box" parent="." instance=ExtResource("3_tl4hk")]
+[node name="hit_box" parent="." instance=ExtResource("3")]
 scale = Vector2(0.352544, 0.262659)
 knockback = Vector2(5, 0)
 hitStun = 0.2
