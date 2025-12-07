@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/17. Unknown Island.ogg-bb167f1f4f370fc76e3983
 [params]
 
 loop=false
-loop_offset=0
-bpm=0
+loop_offset=0.0
+bpm=0.0
 beat_count=0
 bar_beats=4

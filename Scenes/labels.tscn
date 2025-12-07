@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dy2va8vmq0tdr"]
 
-[ext_resource type="Texture2D" uid="uid://g8j8u0sjn7tl" path="res://Assets/Gui/All.png" id="1_vmrw8"]
-[ext_resource type="FontFile" uid="uid://t2q00w257m7v" path="res://Assets/Gui/ARCADECLASSIC.TTF" id="2_cj4c0"]
+[ext_resource type="Texture2D" uid="uid://g8j8u0sjn7tl" path="res://Assets/Gui/All.png" id="1"]
+[ext_resource type="FontFile" uid="uid://t2q00w257m7v" path="res://Assets/Gui/ARCADECLASSIC.TTF" id="2"]
 
 [node name="Labels" type="CanvasLayer"]
 
@@ -21,7 +21,7 @@ custom_minimum_size = Vector2(300, 50)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
-texture = ExtResource("1_vmrw8")
+texture = ExtResource("1")
 region_rect = Rect2(627, 38, 42, 5)
 
 [node name="Label" type="Label" parent="HBoxContainer/NinePatchRect"]
@@ -37,7 +37,7 @@ offset_right = 24.5
 offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("2_cj4c0")
+theme_override_fonts/font = ExtResource("2")
 theme_override_font_sizes/font_size = 50
 text = "Player"
 
@@ -46,7 +46,7 @@ custom_minimum_size = Vector2(300, 50)
 layout_mode = 2
 size_flags_horizontal = 10
 size_flags_vertical = 0
-texture = ExtResource("1_vmrw8")
+texture = ExtResource("1")
 region_rect = Rect2(628, 6, 41, 5)
 
 [node name="Label" type="Label" parent="HBoxContainer/NinePatchRect3"]
@@ -62,6 +62,6 @@ offset_right = 24.5
 offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("2_cj4c0")
+theme_override_fonts/font = ExtResource("2")
 theme_override_font_sizes/font_size = 50
 text = "Enemy"

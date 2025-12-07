@@ -1,20 +1,20 @@
 [gd_scene load_steps=29 format=3 uid="uid://d1ljo5d8p7vpe"]
 
-[ext_resource type="Script" uid="uid://cwsqh164fw1ag" path="res://Scripts/knight.gd" id="1_6xxqd"]
-[ext_resource type="Texture2D" uid="uid://t5s10l0sroj8" path="res://Assets/Characters/Knight/Moveset/knightIdle.png" id="1_tvdwm"]
-[ext_resource type="Shader" uid="uid://vjkylaod1lbt" path="res://Scenes/Characters/slime.gdshader" id="2_q8hlr"]
-[ext_resource type="Texture2D" uid="uid://xnd8puf0ta7n" path="res://Assets/Characters/Knight/Moveset/knightWalkForward.png" id="2_ylt54"]
-[ext_resource type="Texture2D" uid="uid://bleu42dc8b450" path="res://Assets/Characters/Knight/Moveset/knightWalkBackward.png" id="3_6xxqd"]
-[ext_resource type="PackedScene" uid="uid://bjfdbcdeno77s" path="res://Scenes/States/state_machine.tscn" id="3_qg0cu"]
-[ext_resource type="Texture2D" uid="uid://dg14kapjywraw" path="res://Assets/Characters/Knight/Moveset/knightDefeat.png" id="4_7tll2"]
-[ext_resource type="PackedScene" uid="uid://c3n62rihl400o" path="res://Scenes/entity_detection.tscn" id="4_dmjno"]
-[ext_resource type="Texture2D" uid="uid://dnhk33trnygay" path="res://Assets/Characters/Knight/Moveset/knightLightAttack.png" id="5_rutod"]
-[ext_resource type="Texture2D" uid="uid://bolwxgs5gmbjg" path="res://Assets/Characters/Knight/Moveset/knightBlock.png" id="6_cnlwh"]
-[ext_resource type="Texture2D" uid="uid://c40ti2h6ttlnu" path="res://Assets/Characters/Knight/Moveset/knightHeavyAttack.png" id="7_a7f2n"]
-[ext_resource type="PackedScene" uid="uid://dp0dccv7a7n0p" path="res://Scenes/health_bar.tscn" id="9_7tll2"]
-[ext_resource type="Texture2D" uid="uid://c4gj35j62xysd" path="res://Assets/Characters/Knight/Moveset/knightHurt.png" id="9_rutod"]
-[ext_resource type="PackedScene" uid="uid://cmncdcd5njc5n" path="res://Scenes/Boxes/hurt_box.tscn" id="10_rutod"]
-[ext_resource type="PackedScene" uid="uid://d08w5qphkuy6d" path="res://Scenes/Boxes/hit_box.tscn" id="11_cnlwh"]
+[ext_resource type="Script" uid="uid://cwsqh164fw1ag" path="res://Scripts/knight.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://bolwxgs5gmbjg" path="res://Assets/Characters/Knight/Moveset/knightBlock.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://dg14kapjywraw" path="res://Assets/Characters/Knight/Moveset/knightDefeat.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://c40ti2h6ttlnu" path="res://Assets/Characters/Knight/Moveset/knightHeavyAttack.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://c4gj35j62xysd" path="res://Assets/Characters/Knight/Moveset/knightHurt.png" id="5"]
+[ext_resource type="Texture2D" uid="uid://t5s10l0sroj8" path="res://Assets/Characters/Knight/Moveset/knightIdle.png" id="6"]
+[ext_resource type="Texture2D" uid="uid://dnhk33trnygay" path="res://Assets/Characters/Knight/Moveset/knightLightAttack.png" id="7"]
+[ext_resource type="Texture2D" uid="uid://bleu42dc8b450" path="res://Assets/Characters/Knight/Moveset/knightWalkBackward.png" id="8"]
+[ext_resource type="Texture2D" uid="uid://xnd8puf0ta7n" path="res://Assets/Characters/Knight/Moveset/knightWalkForward.png" id="9"]
+[ext_resource type="Shader" uid="uid://vjkylaod1lbt" path="res://Scenes/Characters/slime.gdshader" id="10"]
+[ext_resource type="PackedScene" uid="uid://bjfdbcdeno77s" path="res://Scenes/States/state_machine.tscn" id="11"]
+[ext_resource type="PackedScene" uid="uid://c3n62rihl400o" path="res://Scenes/entity_detection.tscn" id="12"]
+[ext_resource type="PackedScene" uid="uid://dp0dccv7a7n0p" path="res://Scenes/health_bar.tscn" id="13"]
+[ext_resource type="PackedScene" uid="uid://cmncdcd5njc5n" path="res://Scenes/Boxes/hurt_box.tscn" id="14"]
+[ext_resource type="PackedScene" uid="uid://d08w5qphkuy6d" path="res://Scenes/Boxes/hit_box.tscn" id="15"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a7f2n"]
 size = Vector2(17.5, 33)
@@ -45,7 +45,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("6_cnlwh")]
+"values": [ExtResource("2")]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -158,7 +158,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("4_7tll2")]
+"values": [ExtResource("3")]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -307,7 +307,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("7_a7f2n")]
+"values": [ExtResource("4")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -636,7 +636,7 @@ tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("9_rutod")]
+"values": [ExtResource("5")]
 }
 
 [sub_resource type="Animation" id="Animation_31dyf"]
@@ -654,7 +654,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("1_tvdwm")]
+"values": [ExtResource("6")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -863,7 +863,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("5_rutod")]
+"values": [ExtResource("7")]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -1094,7 +1094,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("1_tvdwm")]
+"values": [ExtResource("6")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -1387,7 +1387,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("3_6xxqd")]
+"values": [ExtResource("8")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -1548,7 +1548,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("2_ylt54")]
+"values": [ExtResource("9")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -1697,7 +1697,7 @@ _data = {
 }
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_n0fme"]
-shader = ExtResource("2_q8hlr")
+shader = ExtResource("10")
 shader_parameter/line_color = Color(1, 0.576471, 0.0431373, 1)
 shader_parameter/line_thickness = 1.0
 
@@ -1706,7 +1706,7 @@ bg_color = Color(0, 0, 0, 1)
 
 [node name="Knight" type="CharacterBody2D"]
 collision_mask = 0
-script = ExtResource("1_6xxqd")
+script = ExtResource("1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -17)
@@ -1722,16 +1722,16 @@ z_index = 1
 material = SubResource("ShaderMaterial_n0fme")
 position = Vector2(0, -9)
 scale = Vector2(0.41, 0.475)
-texture = ExtResource("1_tvdwm")
+texture = ExtResource("6")
 offset = Vector2(0.99999, -3.61051)
 hframes = 2
 vframes = 3
 region_enabled = true
 region_rect = Rect2(0, 0, 192, 192)
 
-[node name="StateMachine" parent="." instance=ExtResource("3_qg0cu")]
+[node name="StateMachine" parent="." instance=ExtResource("11")]
 
-[node name="EntityDetection" parent="." instance=ExtResource("4_dmjno")]
+[node name="EntityDetection" parent="." instance=ExtResource("12")]
 position = Vector2(0, -7)
 target_position = Vector2(30, 0)
 collision_mask = 0
@@ -1741,17 +1741,23 @@ position = Vector2(-4, -16)
 
 [node name="LightAttack" type="Sprite2D" parent="AttackPreviewContainer"]
 visible = false
-texture = ExtResource("5_rutod")
+texture = ExtResource("7")
 region_enabled = true
 region_rect = Rect2(16, 288, 144, 144)
+
+[node name="Idle" type="Sprite2D" parent="AttackPreviewContainer"]
+visible = false
+texture = ExtResource("7")
+region_enabled = true
+region_rect = Rect2(-16, -16, 160, 160)
 
 [node name="HeavyAttack" type="Sprite2D" parent="AttackPreviewContainer"]
 visible = false
-texture = ExtResource("7_a7f2n")
+texture = ExtResource("4")
 region_enabled = true
 region_rect = Rect2(16, 288, 144, 144)
 
-[node name="HealthBar" parent="." instance=ExtResource("9_7tll2")]
+[node name="HealthBar" parent="." instance=ExtResource("13")]
 modulate = Color(1, 1, 1, 0.976471)
 offset_top = -27.0
 offset_right = 94.0
@@ -1760,9 +1766,9 @@ scale = Vector2(0.123545, 0.076192)
 theme_override_styles/background = SubResource("StyleBoxFlat_7tll2")
 min_value = 0.0
 
-[node name="HurtBox" parent="." instance=ExtResource("10_rutod")]
-position = Vector2(0, -12)
-scale = Vector2(0.522706, -0.540182)
+[node name="HurtBox" parent="." instance=ExtResource("14")]
+position = Vector2(-1, -14)
+scale = Vector2(0.701935, -0.63115)
 
 [node name="Stun" type="Timer" parent="."]
 
@@ -1772,7 +1778,7 @@ scale = Vector2(0.522706, -0.540182)
 process_mode = 3
 z_index = 1
 
-[node name="hit_box2" parent="HitBoxContainer" instance=ExtResource("11_cnlwh")]
+[node name="hit_box2" parent="HitBoxContainer" instance=ExtResource("15")]
 z_index = 1
 position = Vector2(23, -16)
 scale = Vector2(1e-05, 1e-05)
@@ -1783,7 +1789,7 @@ hitStun = 0.1
 blockStun = 0.3
 damage = 50.0
 
-[node name="hit_box" parent="HitBoxContainer" instance=ExtResource("11_cnlwh")]
+[node name="hit_box" parent="HitBoxContainer" instance=ExtResource("15")]
 z_index = 1
 position = Vector2(21, -7)
 scale = Vector2(1.00136e-05, 1.00136e-05)
@@ -1793,3 +1799,20 @@ knockback = Vector2(5, 0)
 hitStun = 0.1
 blockStun = 0.3
 damage = 20.0
+
+[node name="StatusEffects" type="Sprite2D" parent="."]
+z_index = 7
+z_as_relative = false
+position = Vector2(0, -15)
+
+[node name="StatusIcon" type="Sprite2D" parent="."]
+z_index = 7
+z_as_relative = false
+position = Vector2(0, -45)
+scale = Vector2(0.3, 0.3)
+
+[node name="StatusEffects2" type="Sprite2D" parent="."]
+z_index = 7
+z_as_relative = false
+position = Vector2(0, -15)
+scale = Vector2(0.5, 0.5)

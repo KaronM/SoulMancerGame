@@ -1,30 +1,27 @@
-<<<<<<< Updated upstream
-[gd_scene load_steps=10 format=3 uid="uid://dwvsp7oxqufwc"]
-=======
 [gd_scene load_steps=12 format=3 uid="uid://dwvsp7oxqufwc"]
->>>>>>> Stashed changes
 
-[ext_resource type="Texture2D" uid="uid://corv77y1jel3" path="res://Assets/Characters/OverworldPlayer/idle.png" id="1_21wu8"]
-[ext_resource type="Script" uid="uid://cm4h8pn34yrmx" path="res://Scripts/area_2d.gd" id="2_lm5hq"]
+[ext_resource type="Script" uid="uid://bc8qx8sbfuwql" path="res://Scripts/overworld_enemy.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://corv77y1jel3" path="res://Assets/Characters/OverworldPlayer/idle.png" id="2"]
+[ext_resource type="Script" uid="uid://cm4h8pn34yrmx" path="res://Scripts/area_2d.gd" id="3"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_21wu8"]
 radius = 8.0
 height = 18.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lm5hq"]
-atlas = ExtResource("1_21wu8")
+atlas = ExtResource("2")
 region = Rect2(0, 80, 80, 80)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6qxk7"]
-atlas = ExtResource("1_21wu8")
+atlas = ExtResource("2")
 region = Rect2(80, 80, 80, 80)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rp18l"]
-atlas = ExtResource("1_21wu8")
+atlas = ExtResource("2")
 region = Rect2(160, 80, 80, 80)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hg8wc"]
-atlas = ExtResource("1_21wu8")
+atlas = ExtResource("2")
 region = Rect2(240, 80, 80, 80)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_3dlal"]
@@ -50,15 +47,11 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_21wu8"]
 size = Vector2(27.5, 23.5)
 
-<<<<<<< Updated upstream
-[node name="OverworldEnemy" type="CharacterBody2D"]
-=======
 [sub_resource type="CircleShape2D" id="CircleShape2D_6qxk7"]
 radius = 71.1758
 
 [node name="OverworldEnemy" type="CharacterBody2D" groups=["OverworldEnemy"]]
-script = ExtResource("1_6qxk7")
->>>>>>> Stashed changes
+script = ExtResource("1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_21wu8")
@@ -69,13 +62,9 @@ sprite_frames = SubResource("SpriteFrames_3dlal")
 autoplay = "default"
 frame_progress = 0.489224
 
-<<<<<<< Updated upstream
-[node name="Area2D" type="Area2D" parent="."]
-=======
 [node name="Hitbox" type="Area2D" parent="."]
 scale = Vector2(1.28706, 0.975668)
->>>>>>> Stashed changes
-script = ExtResource("2_lm5hq")
+script = ExtResource("3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 position = Vector2(0, 12)

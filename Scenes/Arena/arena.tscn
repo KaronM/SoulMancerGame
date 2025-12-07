@@ -1,25 +1,26 @@
-[gd_scene load_steps=7 format=3 uid="uid://doodsj18msg48"]
+[gd_scene load_steps=8 format=3 uid="uid://doodsj18msg48"]
 
-[ext_resource type="Script" uid="uid://c28wwcfjum3f1" path="res://Scripts/arena.gd" id="1_lq7nq"]
-[ext_resource type="PackedScene" uid="uid://l60hpun2psky" path="res://Scenes/action_token_bar.tscn" id="2_6o3nl"]
-[ext_resource type="PackedScene" uid="uid://dy2va8vmq0tdr" path="res://Scenes/labels.tscn" id="4_rm3sm"]
-[ext_resource type="FontFile" uid="uid://t2q00w257m7v" path="res://Assets/Gui/ARCADECLASSIC.TTF" id="5_t7yvt"]
-[ext_resource type="PackedScene" uid="uid://dd115wg8osd5b" path="res://Scenes/Arena/player_options.tscn" id="6_11not"]
-[ext_resource type="PackedScene" uid="uid://d2qv1ili1aot1" path="res://Scenes/round_end_label.tscn" id="6_qnyor"]
+[ext_resource type="Script" uid="uid://c28wwcfjum3f1" path="res://Scripts/arena.gd" id="1"]
+[ext_resource type="PackedScene" uid="uid://l60hpun2psky" path="res://Scenes/action_token_bar.tscn" id="2"]
+[ext_resource type="PackedScene" uid="uid://dd115wg8osd5b" path="res://Scenes/Arena/player_options.tscn" id="3"]
+[ext_resource type="PackedScene" uid="uid://dy2va8vmq0tdr" path="res://Scenes/labels.tscn" id="4"]
+[ext_resource type="FontFile" uid="uid://t2q00w257m7v" path="res://Assets/Gui/ARCADECLASSIC.TTF" id="5"]
+[ext_resource type="PackedScene" uid="uid://d2qv1ili1aot1" path="res://Scenes/round_end_label.tscn" id="6"]
+[ext_resource type="Texture2D" uid="uid://c441rcgj2eoqs" path="res://Assets/Gui/icons8-refresh-32 (1).png" id="7"]
 
 [node name="Arena" type="Node2D"]
-script = ExtResource("1_lq7nq")
+script = ExtResource("1")
 
-[node name="ActionTokenBar" parent="." instance=ExtResource("2_6o3nl")]
+[node name="ActionTokenBar" parent="." instance=ExtResource("2")]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2, 2)
 position_smoothing_enabled = true
 
-[node name="PlayerOptions" parent="." instance=ExtResource("6_11not")]
+[node name="PlayerOptions" parent="." instance=ExtResource("3")]
 unique_name_in_owner = true
 
-[node name="Labels" parent="." instance=ExtResource("4_rm3sm")]
+[node name="Labels" parent="." instance=ExtResource("4")]
 
 [node name="Start" type="CanvasLayer" parent="."]
 
@@ -37,8 +38,32 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 6
 size_flags_vertical = 6
-theme_override_fonts/font = ExtResource("5_t7yvt")
+theme_override_fonts/font = ExtResource("5")
 theme_override_font_sizes/font_size = 100
 text = "Press Space"
 
-[node name="RoundEndLabel" parent="." instance=ExtResource("6_qnyor")]
+[node name="RoundEndLabel" parent="." instance=ExtResource("6")]
+
+[node name="Control" type="CanvasLayer" parent="."]
+
+[node name="Round" type="HBoxContainer" parent="Control"]
+z_index = 10
+z_as_relative = false
+offset_left = 516.0
+offset_top = -4.0
+offset_right = 653.0
+offset_bottom = 37.0
+size_flags_horizontal = 6
+size_flags_vertical = 10
+
+[node name="Label" type="Label" parent="Control/Round"]
+modulate = Color(1, 0.15, 0.15, 1)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5")
+theme_override_font_sizes/font_size = 40
+text = "Round 1"
+
+[node name="Sprite2D" type="Sprite2D" parent="Control/Round"]
+modulate = Color(0.925612, 0, 0.223121, 1)
+position = Vector2(160, 22)
+texture = ExtResource("7")

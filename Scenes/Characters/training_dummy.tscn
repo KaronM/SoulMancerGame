@@ -1,11 +1,11 @@
 [gd_scene load_steps=15 format=3 uid="uid://b55urn4wcc4tn"]
 
-[ext_resource type="Script" uid="uid://xq6ew0b1aeqp" path="res://Scripts/training_dummy.gd" id="1_pvifw"]
-[ext_resource type="Texture2D" uid="uid://bjqxlsmgy0vp8" path="res://Assets/Characters/TrainingDummy/Moveset/Idle.png" id="2_4byup"]
-[ext_resource type="Texture2D" uid="uid://cgufki8ii6631" path="res://Assets/Characters/TrainingDummy/Moveset/Hurt.png" id="3_g4pxg"]
-[ext_resource type="Texture2D" uid="uid://cph3nau02aced" path="res://Assets/Characters/TrainingDummy/Moveset/Defeat.png" id="4_dmsll"]
-[ext_resource type="PackedScene" uid="uid://bjfdbcdeno77s" path="res://Scenes/States/state_machine.tscn" id="5_n3nl0"]
-[ext_resource type="PackedScene" uid="uid://cmncdcd5njc5n" path="res://Scenes/Boxes/hurt_box.tscn" id="6_4byup"]
+[ext_resource type="Script" uid="uid://xq6ew0b1aeqp" path="res://Scripts/training_dummy.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://cph3nau02aced" path="res://Assets/Characters/TrainingDummy/Moveset/Defeat.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://cgufki8ii6631" path="res://Assets/Characters/TrainingDummy/Moveset/Hurt.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://bjqxlsmgy0vp8" path="res://Assets/Characters/TrainingDummy/Moveset/Idle.png" id="4"]
+[ext_resource type="PackedScene" uid="uid://bjfdbcdeno77s" path="res://Scenes/States/state_machine.tscn" id="5"]
+[ext_resource type="PackedScene" uid="uid://cmncdcd5njc5n" path="res://Scenes/Boxes/hurt_box.tscn" id="6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8vqty"]
 size = Vector2(13, 46)
@@ -26,7 +26,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("4_dmsll")]
+"values": [ExtResource("2")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -102,7 +102,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("3_g4pxg")]
+"values": [ExtResource("3")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -179,7 +179,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("2_4byup")]
+"values": [ExtResource("4")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -330,7 +330,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("2_4byup")]
+"values": [ExtResource("4")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -355,7 +355,7 @@ _data = {
 }
 
 [node name="TrainingDummy" type="CharacterBody2D"]
-script = ExtResource("1_pvifw")
+script = ExtResource("1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, -24)
@@ -376,9 +376,9 @@ libraries = {
 }
 autoplay = "Idle"
 
-[node name="StateMachine" parent="." instance=ExtResource("5_n3nl0")]
+[node name="StateMachine" parent="." instance=ExtResource("5")]
 
-[node name="HurtBox" parent="." instance=ExtResource("6_4byup")]
+[node name="HurtBox" parent="." instance=ExtResource("6")]
 position = Vector2(-1, -13)
 scale = Vector2(0.529168, 0.59391)
 

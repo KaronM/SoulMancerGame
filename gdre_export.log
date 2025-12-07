@@ -1,0 +1,36 @@
+GDRE Tools v2.2.0
+macOS 26.1.0, Intel(R) Iris(TM) Plus Graphics, vulkan
+Opening file: ~/Documents/GameProgrammingClass/SoulMancer.app/Contents/Resources/SoulMancer.pck
+Loaded 296 imported files
+Detected Engine Version: 4.4.0
+Detected Bytecode Revision: 4.3.0-stable (77af6ca)
+Verified 598 files, no errors detected!
+Extracted 598 files, no errors detected!
+Saved project config.
+
+
+********************************EXPORT REPORT********************************
+
+Totals:                                 
+Decompiled scripts:                     66
+Failed scripts:                         0
+Imported resources for export session:  296
+Successfully converted:                 296
+Lossy:                                  1
+Rewrote metadata:                       177
+Non-importable conversions:             0
+Not converted:                          0
+Failed conversions:                     0
+-------------
+
+
+
+------------------------------------------------------------------------------------
+
+Use Godot editor version 4.4.0 to edit the project.
+Note: the project may be using a custom version of Godot. Detection for this has not been implemented yet.
+If you find that you have many non-import errors upon opening the project 
+(i.e. scripts or shaders have many errors), use the original game's binary as the export template.
+
+*******************************************************************************
+

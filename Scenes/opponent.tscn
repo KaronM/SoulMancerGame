@@ -1,8 +1,8 @@
 [gd_scene load_steps=2 format=3 uid="uid://covnj1vxfiilv"]
 
-[ext_resource type="Script" uid="uid://bpjjicpq876e4" path="res://Scripts/opponent.gd" id="1_modcp"]
+[ext_resource type="Script" uid="uid://bpjjicpq876e4" path="res://Scripts/opponent.gd" id="1"]
 
 [node name="Opponent" type="CharacterBody2D" groups=["Opponent"]]
-script = ExtResource("1_modcp")
+script = ExtResource("1")
 
 [node name="CharacterRoot" type="Node2D" parent="."]

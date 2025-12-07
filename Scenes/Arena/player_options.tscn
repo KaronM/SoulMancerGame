@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://dd115wg8osd5b"]
 
-[ext_resource type="Texture2D" uid="uid://5o3bmhe3rsjh" path="res://Assets/Gui/UI_TravelBook_Slot01b.png" id="1_gaexo"]
-[ext_resource type="Texture2D" uid="uid://2601qn37gp7c" path="res://Assets/Gui/00.png" id="2_gaexo"]
-[ext_resource type="FontFile" uid="uid://t2q00w257m7v" path="res://Assets/Gui/ARCADECLASSIC.TTF" id="2_yow4g"]
-[ext_resource type="Script" uid="uid://bx2g7bmq5a87l" path="res://Scripts/start.gd" id="4_5s43b"]
-[ext_resource type="Script" uid="uid://dbdit8j6raqqb" path="res://Scripts/scroll_container.gd" id="4_rkyxh"]
+[ext_resource type="Texture2D" uid="uid://5o3bmhe3rsjh" path="res://Assets/Gui/UI_TravelBook_Slot01b.png" id="1"]
+[ext_resource type="Texture2D" uid="uid://2601qn37gp7c" path="res://Assets/Gui/00.png" id="2"]
+[ext_resource type="FontFile" uid="uid://t2q00w257m7v" path="res://Assets/Gui/ARCADECLASSIC.TTF" id="3"]
+[ext_resource type="Script" uid="uid://dbdit8j6raqqb" path="res://Scripts/scroll_container.gd" id="4"]
+[ext_resource type="Script" uid="uid://bx2g7bmq5a87l" path="res://Scripts/start.gd" id="5"]
 
 [node name="PlayerOptions" type="CanvasLayer"]
 
@@ -26,7 +26,7 @@ size_flags_horizontal = 3
 modulate = Color(1, 1, 1, 0.902)
 custom_minimum_size = Vector2(200, 100)
 layout_mode = 2
-texture = ExtResource("1_gaexo")
+texture = ExtResource("1")
 region_rect = Rect2(0, 0, 30, 30)
 patch_margin_left = 1
 patch_margin_top = 1
@@ -44,7 +44,7 @@ grow_vertical = 2
 [node name="NinePatchRect" type="NinePatchRect" parent="Control/MovesRecord/NinePatchContainer/VBoxContainer"]
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
-texture = ExtResource("2_gaexo")
+texture = ExtResource("2")
 region_rect = Rect2(68, 68, 38, 8)
 
 [node name="Label" type="Label" parent="Control/MovesRecord/NinePatchContainer/VBoxContainer/NinePatchRect"]
@@ -54,7 +54,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("2_yow4g")
+theme_override_fonts/font = ExtResource("3")
 theme_override_font_sizes/font_size = 50
 text = "Queue"
 horizontal_alignment = 1
@@ -65,7 +65,7 @@ custom_minimum_size = Vector2(0, 225)
 layout_mode = 2
 horizontal_scroll_mode = 0
 vertical_scroll_mode = 3
-script = ExtResource("4_rkyxh")
+script = ExtResource("4")
 
 [node name="MoveQueue" type="VBoxContainer" parent="Control/MovesRecord/NinePatchContainer/VBoxContainer/ScrollContainer"]
 custom_minimum_size = Vector2(50, 100)
@@ -82,7 +82,7 @@ size_flags_horizontal = 4
 [node name="NinePatchContainer" type="NinePatchRect" parent="Control/Moves"]
 custom_minimum_size = Vector2(200, 100)
 layout_mode = 2
-texture = ExtResource("1_gaexo")
+texture = ExtResource("1")
 region_rect = Rect2(0, 0, 30, 30)
 patch_margin_left = 1
 patch_margin_top = 1
@@ -102,7 +102,7 @@ grow_horizontal = 2
 [node name="NinePatchRect" type="NinePatchRect" parent="Control/Moves/NinePatchContainer/VBoxContainer"]
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
-texture = ExtResource("2_gaexo")
+texture = ExtResource("2")
 region_rect = Rect2(132, 68, 38, 8)
 
 [node name="Label" type="Label" parent="Control/Moves/NinePatchContainer/VBoxContainer/NinePatchRect"]
@@ -112,7 +112,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("2_yow4g")
+theme_override_fonts/font = ExtResource("3")
 theme_override_font_sizes/font_size = 50
 text = "Moves"
 horizontal_alignment = 1
@@ -130,10 +130,10 @@ alignment = 2
 [node name="Start" type="Label" parent="Control/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 6
-theme_override_fonts/font = ExtResource("2_yow4g")
+theme_override_fonts/font = ExtResource("3")
 theme_override_font_sizes/font_size = 40
 text = "Press Space to Start"
-script = ExtResource("4_5s43b")
+script = ExtResource("5")
 
 [node name="Reset" type="Label" parent="Control/VBoxContainer"]
 layout_mode = 2

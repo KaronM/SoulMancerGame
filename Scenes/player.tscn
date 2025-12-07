@@ -1,16 +1,16 @@
 [gd_scene load_steps=3 format=3 uid="uid://cuco33cg4btgk"]
 
-[ext_resource type="Script" uid="uid://jpsofis33ugl" path="res://Scripts/player.gd" id="1_v0iea"]
-[ext_resource type="PackedScene" uid="uid://br3xeb62ou1we" path="res://Scenes/selection.tscn" id="3_6t5aa"]
+[ext_resource type="Script" uid="uid://jpsofis33ugl" path="res://Scripts/player.gd" id="1"]
+[ext_resource type="PackedScene" uid="uid://br3xeb62ou1we" path="res://Scenes/selection.tscn" id="2"]
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 position = Vector2(0, -2)
 collision_mask = 0
-script = ExtResource("1_v0iea")
+script = ExtResource("1")
 
 [node name="CharacterRoot" type="Node2D" parent="."]
 
-[node name="Selection" parent="." instance=ExtResource("3_6t5aa")]
+[node name="Selection" parent="." instance=ExtResource("2")]
 autoplay = "Picking"
 offset = Vector2(0, -5)
 

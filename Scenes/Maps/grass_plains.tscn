@@ -1,63 +1,71 @@
-[gd_scene load_steps=23 format=4 uid="uid://bise05ws7llal"]
+[gd_scene load_steps=25 format=4 uid="uid://bise05ws7llal"]
 
-[ext_resource type="Texture2D" uid="uid://c6tvqk1shby30" path="res://Assets/TileSets/GrassPlains/Tile_01.png" id="1_d7nfv"]
-[ext_resource type="Texture2D" uid="uid://di73monugln8n" path="res://Assets/TileSets/GrassPlains/Backgrounds/1.png" id="2_5eubn"]
-[ext_resource type="Texture2D" uid="uid://brc7gqyith7lu" path="res://Assets/TileSets/GrassPlains/Tile_02.png" id="2_8hrjk"]
-[ext_resource type="Texture2D" uid="uid://bf1qart0yrsdl" path="res://Assets/TileSets/GrassPlains/Tile_03.png" id="3_5eubn"]
-[ext_resource type="Texture2D" uid="uid://n64c3mlote6p" path="res://Assets/TileSets/GrassPlains/Backgrounds/4.png" id="3_dccp2"]
-[ext_resource type="Texture2D" uid="uid://cuffkx488327b" path="res://Assets/TileSets/GrassPlains/Backgrounds/5.png" id="4_c3dwf"]
-[ext_resource type="Texture2D" uid="uid://ruhjlplyp7ut" path="res://Assets/TileSets/GrassPlains/Tile_04.png" id="4_dccp2"]
-[ext_resource type="PackedScene" uid="uid://cuco33cg4btgk" path="res://Scenes/player.tscn" id="5_c3dwf"]
-[ext_resource type="PackedScene" uid="uid://covnj1vxfiilv" path="res://Scenes/opponent.tscn" id="6_d7nfv"]
-[ext_resource type="PackedScene" uid="uid://doodsj18msg48" path="res://Scenes/Arena/arena.tscn" id="8_lul3h"]
-[ext_resource type="AudioStream" uid="uid://bpd2jief1oisx" path="res://Assets/Audio/music/ogg/01. Battle Theme I (full).ogg" id="11_dccp2"]
+[ext_resource type="PackedScene" uid="uid://cuco33cg4btgk" path="res://Scenes/player.tscn" id="1"]
+[ext_resource type="Texture2D" uid="uid://di73monugln8n" path="res://Assets/TileSets/GrassPlains/Backgrounds/1.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://n64c3mlote6p" path="res://Assets/TileSets/GrassPlains/Backgrounds/4.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://cuffkx488327b" path="res://Assets/TileSets/GrassPlains/Backgrounds/5.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://c6tvqk1shby30" path="res://Assets/TileSets/GrassPlains/Tile_01.png" id="5"]
+[ext_resource type="Texture2D" uid="uid://brc7gqyith7lu" path="res://Assets/TileSets/GrassPlains/Tile_02.png" id="6"]
+[ext_resource type="Texture2D" uid="uid://bf1qart0yrsdl" path="res://Assets/TileSets/GrassPlains/Tile_03.png" id="7"]
+[ext_resource type="Texture2D" uid="uid://ruhjlplyp7ut" path="res://Assets/TileSets/GrassPlains/Tile_04.png" id="8"]
+[ext_resource type="PackedScene" uid="uid://covnj1vxfiilv" path="res://Scenes/opponent.tscn" id="9"]
+[ext_resource type="PackedScene" uid="uid://doodsj18msg48" path="res://Scenes/Arena/arena.tscn" id="10"]
+[ext_resource type="AudioStream" uid="uid://bpd2jief1oisx" path="res://Assets/Audio/music/ogg/01. Battle Theme I (full).ogg" id="11"]
+[ext_resource type="PackedScene" uid="uid://yl73io7vguid" path="res://Scenes/Arena/battleTransition.tscn" id="12"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5bhhu"]
-texture = ExtResource("2_5eubn")
+texture = ExtResource("2")
 0:0/size_in_atlas = Vector2i(36, 20)
 0:0/0 = 0
+0:0/0/script = null
 
 [sub_resource type="TileSet" id="TileSet_i2g87"]
 sources/0 = SubResource("TileSetAtlasSource_5bhhu")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lul3h"]
-texture = ExtResource("3_dccp2")
+texture = ExtResource("3")
 0:0/size_in_atlas = Vector2i(36, 20)
 0:0/0 = 0
+0:0/0/script = null
 
 [sub_resource type="TileSet" id="TileSet_bd7sr"]
 sources/0 = SubResource("TileSetAtlasSource_lul3h")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q5mmj"]
-texture = ExtResource("4_c3dwf")
+texture = ExtResource("4")
 0:0/size_in_atlas = Vector2i(36, 20)
 0:0/0 = 0
+0:0/0/script = null
 
 [sub_resource type="TileSet" id="TileSet_057lq"]
 sources/0 = SubResource("TileSetAtlasSource_q5mmj")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wlwew"]
-texture = ExtResource("1_d7nfv")
+texture = ExtResource("5")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, -16, 16, 16, 16, 16, -16)
+0:0/0/script = null
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0kq3n"]
-texture = ExtResource("2_8hrjk")
+texture = ExtResource("6")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, -16, 16, 16, 16, 16, -16)
+0:0/0/script = null
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_d5thu"]
-texture = ExtResource("3_5eubn")
+texture = ExtResource("7")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, -16, 16, 16, 16, 16, -16)
+0:0/0/script = null
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_il4jn"]
-texture = ExtResource("4_dccp2")
+texture = ExtResource("8")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
+0:0/0/script = null
 
 [sub_resource type="TileSet" id="TileSet_gnqev"]
 tile_size = Vector2i(32, 32)
@@ -67,9 +75,13 @@ sources/1 = SubResource("TileSetAtlasSource_0kq3n")
 sources/2 = SubResource("TileSetAtlasSource_d5thu")
 sources/3 = SubResource("TileSetAtlasSource_il4jn")
 
+[sub_resource type="Environment" id="Environment_dccp2"]
+background_mode = 3
+tonemap_mode = 2
+
 [node name="GrassPlains" type="Node2D"]
 
-[node name="Player" parent="." instance=ExtResource("5_c3dwf")]
+[node name="Player" parent="." instance=ExtResource("1")]
 position = Vector2(-81, -25)
 
 [node name="Background" type="TileMapLayer" parent="."]
@@ -88,13 +100,18 @@ tile_set = SubResource("TileSet_057lq")
 tile_map_data = PackedByteArray("AAD6/wAAAQAAAAAAAAD7/wAAAQAAAAAAAAD8/wAAAQAAAAAAAAD9/wAAAQAAAAAAAAD+/wAAAQAAAAAAAAD//wAAAQAAAAAAAAAAAAAAAQAAAAAAAAABAAAAAQAAAAAAAAACAAAAAQAAAAAAAAADAAAAAQAAAAAAAAAEAAAAAQAAAAAAAAAFAAAAAQAAAAAAAAAGAAAAAQAAAAAAAAAHAAAAAQAAAAAAAAAIAAAAAQAAAAAAAAAJAAAAAQAAAAAAAAD5/wAAAQAAAAAAAAAKAAAAAQAAAAAAAAD5/wEAAwAAAAAAAAD5/wIAAwAAAAAAAAD5/wMAAwAAAAAAAAD5/wQAAwAAAAAAAAD6/wEAAwAAAAAAAAD6/wIAAwAAAAAAAAD6/wMAAwAAAAAAAAD6/wQAAwAAAAAAAAD7/wEAAwAAAAAAAAD7/wIAAwAAAAAAAAD7/wMAAwAAAAAAAAD7/wQAAwAAAAAAAAD8/wEAAwAAAAAAAAD8/wIAAwAAAAAAAAD8/wMAAwAAAAAAAAD8/wQAAwAAAAAAAAD9/wEAAwAAAAAAAAD9/wIAAwAAAAAAAAD9/wMAAwAAAAAAAAD9/wQAAwAAAAAAAAD+/wEAAwAAAAAAAAD+/wIAAwAAAAAAAAD+/wMAAwAAAAAAAAD+/wQAAwAAAAAAAAD//wEAAwAAAAAAAAD//wIAAwAAAAAAAAD//wMAAwAAAAAAAAD//wQAAwAAAAAAAAAAAAEAAwAAAAAAAAAAAAIAAwAAAAAAAAAAAAMAAwAAAAAAAAAAAAQAAwAAAAAAAAABAAEAAwAAAAAAAAABAAIAAwAAAAAAAAABAAMAAwAAAAAAAAABAAQAAwAAAAAAAAACAAEAAwAAAAAAAAACAAIAAwAAAAAAAAACAAMAAwAAAAAAAAACAAQAAwAAAAAAAAADAAEAAwAAAAAAAAADAAIAAwAAAAAAAAADAAMAAwAAAAAAAAADAAQAAwAAAAAAAAAEAAEAAwAAAAAAAAAEAAIAAwAAAAAAAAAEAAMAAwAAAAAAAAAEAAQAAwAAAAAAAAAFAAEAAwAAAAAAAAAFAAIAAwAAAAAAAAAFAAMAAwAAAAAAAAAFAAQAAwAAAAAAAAAGAAEAAwAAAAAAAAAGAAIAAwAAAAAAAAAGAAMAAwAAAAAAAAAGAAQAAwAAAAAAAAAHAAEAAwAAAAAAAAAHAAIAAwAAAAAAAAAHAAMAAwAAAAAAAAAHAAQAAwAAAAAAAAAIAAEAAwAAAAAAAAAIAAIAAwAAAAAAAAAIAAMAAwAAAAAAAAAIAAQAAwAAAAAAAAAJAAEAAwAAAAAAAAAJAAIAAwAAAAAAAAAJAAMAAwAAAAAAAAAJAAQAAwAAAAAAAAAKAAEAAwAAAAAAAAAKAAIAAwAAAAAAAAAKAAMAAwAAAAAAAAAKAAQAAwAAAAAAAAALAAEAAwAAAAAAAAALAAIAAwAAAAAAAAALAAMAAwAAAAAAAAALAAQAAwAAAAAAAAAMAAEAAwAAAAAAAAAMAAIAAwAAAAAAAAAMAAMAAwAAAAAAAAAMAAQAAwAAAAAAAAANAAEAAwAAAAAAAAANAAIAAwAAAAAAAAANAAMAAwAAAAAAAAANAAQAAwAAAAAAAAAOAAEAAwAAAAAAAAAOAAIAAwAAAAAAAAAOAAMAAwAAAAAAAAAOAAQAAwAAAAAAAAAPAAEAAwAAAAAAAAAPAAIAAwAAAAAAAAAPAAMAAwAAAAAAAAAPAAQAAwAAAAAAAAAQAAEAAwAAAAAAAAAQAAIAAwAAAAAAAAAQAAMAAwAAAAAAAAAQAAQAAwAAAAAAAAARAAEAAwAAAAAAAAARAAIAAwAAAAAAAAARAAMAAwAAAAAAAAARAAQAAwAAAAAAAADw/wEAAwAAAAAAAADw/wIAAwAAAAAAAADw/wMAAwAAAAAAAADw/wQAAwAAAAAAAADx/wEAAwAAAAAAAADx/wIAAwAAAAAAAADx/wMAAwAAAAAAAADx/wQAAwAAAAAAAADy/wEAAwAAAAAAAADy/wIAAwAAAAAAAADy/wMAAwAAAAAAAADy/wQAAwAAAAAAAADz/wEAAwAAAAAAAADz/wIAAwAAAAAAAADz/wMAAwAAAAAAAADz/wQAAwAAAAAAAAD0/wEAAwAAAAAAAAD0/wIAAwAAAAAAAAD0/wMAAwAAAAAAAAD0/wQAAwAAAAAAAAD1/wEAAwAAAAAAAAD1/wIAAwAAAAAAAAD1/wMAAwAAAAAAAAD1/wQAAwAAAAAAAAD2/wEAAwAAAAAAAAD2/wIAAwAAAAAAAAD2/wMAAwAAAAAAAAD2/wQAAwAAAAAAAAD3/wEAAwAAAAAAAAD3/wIAAwAAAAAAAAD3/wMAAwAAAAAAAAD3/wQAAwAAAAAAAAD4/wEAAwAAAAAAAAD4/wIAAwAAAAAAAAD4/wMAAwAAAAAAAAD4/wQAAwAAAAAAAADw/wUAAwAAAAAAAADw/wYAAwAAAAAAAADw/wcAAwAAAAAAAADw/wgAAwAAAAAAAADw/wkAAwAAAAAAAADx/wUAAwAAAAAAAADx/wYAAwAAAAAAAADx/wcAAwAAAAAAAADx/wgAAwAAAAAAAADx/wkAAwAAAAAAAADy/wUAAwAAAAAAAADy/wYAAwAAAAAAAADy/wcAAwAAAAAAAADy/wgAAwAAAAAAAADy/wkAAwAAAAAAAADz/wUAAwAAAAAAAADz/wYAAwAAAAAAAADz/wcAAwAAAAAAAADz/wgAAwAAAAAAAADz/wkAAwAAAAAAAAD0/wUAAwAAAAAAAAD0/wYAAwAAAAAAAAD0/wcAAwAAAAAAAAD0/wgAAwAAAAAAAAD0/wkAAwAAAAAAAAD1/wUAAwAAAAAAAAD1/wYAAwAAAAAAAAD1/wcAAwAAAAAAAAD1/wgAAwAAAAAAAAD1/wkAAwAAAAAAAAD2/wUAAwAAAAAAAAD2/wYAAwAAAAAAAAD2/wcAAwAAAAAAAAD2/wgAAwAAAAAAAAD2/wkAAwAAAAAAAAD3/wUAAwAAAAAAAAD3/wYAAwAAAAAAAAD3/wcAAwAAAAAAAAD3/wgAAwAAAAAAAAD3/wkAAwAAAAAAAAD4/wUAAwAAAAAAAAD4/wYAAwAAAAAAAAD4/wcAAwAAAAAAAAD4/wgAAwAAAAAAAAD4/wkAAwAAAAAAAAD5/wUAAwAAAAAAAAD5/wYAAwAAAAAAAAD5/wcAAwAAAAAAAAD5/wgAAwAAAAAAAAD5/wkAAwAAAAAAAAD6/wUAAwAAAAAAAAD6/wYAAwAAAAAAAAD6/wcAAwAAAAAAAAD6/wgAAwAAAAAAAAD6/wkAAwAAAAAAAAD7/wUAAwAAAAAAAAD7/wYAAwAAAAAAAAD7/wcAAwAAAAAAAAD7/wgAAwAAAAAAAAD7/wkAAwAAAAAAAAD8/wUAAwAAAAAAAAD8/wYAAwAAAAAAAAD8/wcAAwAAAAAAAAD8/wgAAwAAAAAAAAD8/wkAAwAAAAAAAAD9/wUAAwAAAAAAAAD9/wYAAwAAAAAAAAD9/wcAAwAAAAAAAAD9/wgAAwAAAAAAAAD9/wkAAwAAAAAAAAD+/wUAAwAAAAAAAAD+/wYAAwAAAAAAAAD+/wcAAwAAAAAAAAD+/wgAAwAAAAAAAAD+/wkAAwAAAAAAAAD//wUAAwAAAAAAAAD//wYAAwAAAAAAAAD//wcAAwAAAAAAAAD//wgAAwAAAAAAAAD//wkAAwAAAAAAAAAAAAUAAwAAAAAAAAAAAAYAAwAAAAAAAAAAAAcAAwAAAAAAAAAAAAgAAwAAAAAAAAAAAAkAAwAAAAAAAAABAAUAAwAAAAAAAAABAAYAAwAAAAAAAAABAAcAAwAAAAAAAAABAAgAAwAAAAAAAAABAAkAAwAAAAAAAAACAAUAAwAAAAAAAAACAAYAAwAAAAAAAAACAAcAAwAAAAAAAAACAAgAAwAAAAAAAAACAAkAAwAAAAAAAAADAAUAAwAAAAAAAAADAAYAAwAAAAAAAAADAAcAAwAAAAAAAAADAAgAAwAAAAAAAAADAAkAAwAAAAAAAAAEAAUAAwAAAAAAAAAEAAYAAwAAAAAAAAAEAAcAAwAAAAAAAAAEAAgAAwAAAAAAAAAEAAkAAwAAAAAAAAAFAAUAAwAAAAAAAAAFAAYAAwAAAAAAAAAFAAcAAwAAAAAAAAAFAAgAAwAAAAAAAAAFAAkAAwAAAAAAAAAGAAUAAwAAAAAAAAAGAAYAAwAAAAAAAAAGAAcAAwAAAAAAAAAGAAgAAwAAAAAAAAAGAAkAAwAAAAAAAAAHAAUAAwAAAAAAAAAHAAYAAwAAAAAAAAAHAAcAAwAAAAAAAAAHAAgAAwAAAAAAAAAHAAkAAwAAAAAAAAAIAAUAAwAAAAAAAAAIAAYAAwAAAAAAAAAIAAcAAwAAAAAAAAAIAAgAAwAAAAAAAAAIAAkAAwAAAAAAAAAJAAUAAwAAAAAAAAAJAAYAAwAAAAAAAAAJAAcAAwAAAAAAAAAJAAgAAwAAAAAAAAAJAAkAAwAAAAAAAAAKAAUAAwAAAAAAAAAKAAYAAwAAAAAAAAAKAAcAAwAAAAAAAAAKAAgAAwAAAAAAAAAKAAkAAwAAAAAAAAALAAUAAwAAAAAAAAALAAYAAwAAAAAAAAALAAcAAwAAAAAAAAALAAgAAwAAAAAAAAALAAkAAwAAAAAAAAAMAAUAAwAAAAAAAAAMAAYAAwAAAAAAAAAMAAcAAwAAAAAAAAAMAAgAAwAAAAAAAAAMAAkAAwAAAAAAAAANAAUAAwAAAAAAAAANAAYAAwAAAAAAAAANAAcAAwAAAAAAAAANAAgAAwAAAAAAAAANAAkAAwAAAAAAAAAOAAUAAwAAAAAAAAAOAAYAAwAAAAAAAAAOAAcAAwAAAAAAAAAOAAgAAwAAAAAAAAAOAAkAAwAAAAAAAAAPAAUAAwAAAAAAAAAPAAYAAwAAAAAAAAAPAAcAAwAAAAAAAAAPAAgAAwAAAAAAAAAPAAkAAwAAAAAAAAAQAAUAAwAAAAAAAAAQAAYAAwAAAAAAAAAQAAcAAwAAAAAAAAAQAAgAAwAAAAAAAAAQAAkAAwAAAAAAAAARAAUAAwAAAAAAAAARAAYAAwAAAAAAAAARAAcAAwAAAAAAAAARAAgAAwAAAAAAAAARAAkAAwAAAAAAAAASAAEAAwAAAAAAAAASAAIAAwAAAAAAAAASAAMAAwAAAAAAAAASAAQAAwAAAAAAAAASAAUAAwAAAAAAAAASAAYAAwAAAAAAAAASAAcAAwAAAAAAAAASAAgAAwAAAAAAAAASAAkAAwAAAAAAAADx/wAAAQAAAAAAAADy/wAAAQAAAAAAAADz/wAAAQAAAAAAAAD0/wAAAQAAAAAAAAD1/wAAAQAAAAAAAAD2/wAAAQAAAAAAAAD3/wAAAQAAAAAAAAD4/wAAAQAAAAAAAAALAAAAAQAAAAAAAAAMAAAAAQAAAAAAAAANAAAAAQAAAAAAAAAOAAAAAQAAAAAAAAAPAAAAAQAAAAAAAAAQAAAAAQAAAAAAAAARAAAAAQAAAAAAAAASAAAAAQAAAAAAAADw/wAAAQAAAAAAAADv//r/AQAAAAAAAADv//v/AQAAAAAAAADv//z/AQAAAAAAAADv//3/AQAAAAAAAADv//7/AQAAAAAAAADv////AQAAAAAAAADv/wAAAQAAAAAAAAATAPr/AQAAAAAAAAATAPv/AQAAAAAAAAATAPz/AQAAAAAAAAATAP3/AQAAAAAAAAATAP7/AQAAAAAAAAATAP//AQAAAAAAAAATAAAAAQAAAAAAAADu//r/AQAAAAAAAADu//v/AQAAAAAAAADu//z/AQAAAAAAAADu//3/AQAAAAAAAADu//7/AQAAAAAAAADu////AQAAAAAAAADu/wAAAQAAAAAAAAAUAPr/AQAAAAAAAAAUAPv/AQAAAAAAAAAUAPz/AQAAAAAAAAAUAP3/AQAAAAAAAAAUAP7/AQAAAAAAAAAUAP//AQAAAAAAAAAUAAAAAQAAAAAAAAA=")
 tile_set = SubResource("TileSet_gnqev")
 
-[node name="Opponent" parent="." instance=ExtResource("6_d7nfv")]
+[node name="Opponent" parent="." instance=ExtResource("9")]
 position = Vector2(199, -29)
 
-[node name="Arena" parent="." instance=ExtResource("8_lul3h")]
+[node name="Arena" parent="." instance=ExtResource("10")]
 position = Vector2(57, -12)
 
 [node name="BattleMusic1" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("11_dccp2")
+stream = ExtResource("11")
 autoplay = true
 parameters/looping = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_dccp2")
+
+[node name="BattleTransition" parent="." instance=ExtResource("12")]
